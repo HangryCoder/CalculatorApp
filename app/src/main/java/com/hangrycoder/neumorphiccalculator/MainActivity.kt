@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.ui.core.setContent
 import androidx.ui.foundation.Text
+import androidx.ui.graphics.Color
+import androidx.ui.layout.Column
+import androidx.ui.material.Divider
+import androidx.ui.material.Surface
 import androidx.ui.tooling.preview.Preview
 import com.hangrycoder.neumorphiccalculator.ui.NeumorphicCalculatorTheme
 
@@ -13,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyApp {
-                Greeting(name = "Android")
+                MyScreenContent()
             }
         }
     }
@@ -27,14 +31,25 @@ fun MyApp(content: @Composable() () -> Unit) {
 }
 
 @Composable
+fun MyScreenContent() {
+    Column {
+        Greeting(name = "Android")
+        Divider(color = Color.Magenta)
+        Greeting(name = "iOS")
+    }
+}
+
+@Composable
 fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+    Surface(color = Color.Yellow) {
+        Text(text = "Hello $name!")
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    MyApp { 
-        Greeting(name = "Android")
+    MyApp {
+        MyScreenContent()
     }
 }
