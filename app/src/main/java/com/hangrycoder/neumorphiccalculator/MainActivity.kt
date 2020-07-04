@@ -12,15 +12,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MyApp()
+            MyApp {
+                Greeting(name = "Android")
+            }
         }
     }
 }
 
 @Composable
-fun MyApp() {
+fun MyApp(content: @Composable() () -> Unit) {
     NeumorphicCalculatorTheme {
-        Greeting("Android")
+        content()
     }
 }
 
@@ -32,5 +34,7 @@ fun Greeting(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    MyApp()
+    MyApp { 
+        Greeting(name = "Android")
+    }
 }
