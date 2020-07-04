@@ -3,13 +3,16 @@ package com.hangrycoder.neumorphiccalculator
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
+import androidx.compose.state
 import androidx.ui.core.setContent
 import androidx.ui.foundation.Text
 import androidx.ui.graphics.Color
 import androidx.ui.layout.Column
+import androidx.ui.material.Button
 import androidx.ui.material.Divider
 import androidx.ui.material.Surface
 import androidx.ui.tooling.preview.Preview
+import androidx.ui.unit.dp
 import com.hangrycoder.neumorphiccalculator.ui.NeumorphicCalculatorTheme
 
 class MainActivity : AppCompatActivity() {
@@ -26,24 +29,37 @@ class MainActivity : AppCompatActivity() {
 @Composable
 fun MyApp(content: @Composable() () -> Unit) {
     NeumorphicCalculatorTheme {
-        content()
+        Surface(color = Color.Yellow) {
+            content()
+        }
     }
 }
 
 @Composable
-fun MyScreenContent() {
+fun Counter() {
+
+    val count = state { 0 }
+
+    Button(onClick = { count.value++ }) {
+        Text("I have been clicked ${count.value} times")
+    }
+}
+
+@Composable
+fun MyScreenContent(names: List<String> = listOf("Android", "there")) {
     Column {
-        Greeting(name = "Android")
-        Divider(color = Color.Magenta)
-        Greeting(name = "iOS")
+        for (name in names) {
+            Greeting(name = name)
+            Divider(color = Color.Magenta)
+        }
+        Divider(color = Color.Blue, thickness = 32.dp)
+        Counter()
     }
 }
 
 @Composable
 fun Greeting(name: String) {
-    Surface(color = Color.Yellow) {
-        Text(text = "Hello $name!")
-    }
+    Text(text = "Hello $name!")
 }
 
 @Preview(showBackground = true)
