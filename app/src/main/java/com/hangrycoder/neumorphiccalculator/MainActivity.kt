@@ -99,11 +99,40 @@ fun DigitalInputContainer(resId: Int) {
 
 @Composable
 fun CalculatorButtonsContainer() {
+    /* val calculatorButtonsContainerModifier = Modifier
+             .preferredHeight(150.dp)
+             .padding(16.dp, 0.dp, 16.dp, 24.dp)
+
+     Box(modifier = calculatorButtonsContainerModifier) {
+         val spaceModifier = Modifier
+                 .preferredHeight(50.dp)
+                 .clip(RoundedCornerShape(24.dp))
+
+         Divider(modifier = spaceModifier, color = darkerGrey)
+
+         Text(text = "CalculatorDigits",
+                 modifier = Modifier.preferredHeight(150.dp).padding(0.dp, 16.dp))
+     }*/
+
     val calculatorButtonsContainerModifier = Modifier
-            .preferredHeight(150.dp)
+            .fillMaxSize()
             .padding(16.dp, 0.dp, 16.dp, 24.dp)
 
-    Box(modifier = calculatorButtonsContainerModifier) {
+    Row(modifier = calculatorButtonsContainerModifier) {
+        CalculatorDigitsContainer()
+        CalculatorFunctionalButtons()
+    }
+
+}
+
+@Composable
+fun CalculatorDigitsContainer() {
+    val calculatorDigitsContainerModifier = Modifier
+            .preferredHeight(150.dp)
+            .weight(0.8f)
+            .padding(16.dp, 0.dp, 16.dp, 24.dp)
+
+    Box(modifier = calculatorDigitsContainerModifier) {
         val spaceModifier = Modifier
                 .preferredHeight(50.dp)
                 .clip(RoundedCornerShape(24.dp))
@@ -113,15 +142,6 @@ fun CalculatorButtonsContainer() {
         Text(text = "CalculatorDigits",
                 modifier = Modifier.preferredHeight(150.dp).padding(0.dp, 16.dp))
     }
-
-}
-
-@Composable
-fun CalculatorDigitsContainer() {
-    //Column(modifier = Modifier.aspectRatio(0.6f)) {
-    EmptySpace()
-    CalculatorDigits()
-    //}
 }
 
 @Composable
@@ -141,9 +161,12 @@ fun CalculatorDigits() {
 
 @Composable
 fun CalculatorFunctionalButtons() {
-    Surface(modifier = Modifier.aspectRatio(0.4f)) {
-        Text(text = "CalculatorFunctionalButtons")
-    }
+    val spaceModifier = Modifier
+            .preferredHeight(50.dp)
+            .weight(0.2f)
+            .clip(RoundedCornerShape(24.dp))
+
+    Divider(modifier = spaceModifier, color = Color.White)
 }
 
 @Preview(showBackground = true)
