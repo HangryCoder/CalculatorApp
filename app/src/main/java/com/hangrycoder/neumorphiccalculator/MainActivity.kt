@@ -4,9 +4,11 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.ui.core.*
+import androidx.ui.foundation.Box
 import androidx.ui.foundation.Image
 import androidx.ui.foundation.Text
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
+import androidx.ui.graphics.Color
 import androidx.ui.layout.*
 import androidx.ui.layout.ColumnScope.weight
 import androidx.ui.material.*
@@ -43,7 +45,7 @@ fun MyScreenContent() {
     Column(modifier = Modifier.weight(1f)) {
         Toolbar()
         DigitalInputContainer(resId = R.drawable.ic_digital_input_container)
-        //CalculatorButtonsContainer()
+        CalculatorButtonsContainer()
     }
 }
 
@@ -98,18 +100,33 @@ fun DigitalInputContainer(resId: Int) {
 @Composable
 fun CalculatorButtonsContainer() {
     val calculatorButtonsContainerModifier = Modifier
+            .preferredHeight(150.dp)
             .padding(16.dp, 0.dp, 16.dp, 24.dp)
 
-    Column(modifier = calculatorButtonsContainerModifier) {
-        EmptySpace()
+    /* Column(modifier = calculatorButtonsContainerModifier) {
+         EmptySpace()
+         CalculatorDigits()
+     }*/
+
+    Box(modifier = calculatorButtonsContainerModifier) {
+        val spaceModifier = Modifier
+                .preferredHeight(50.dp)
+                .clip(RoundedCornerShape(16.dp))
+
+        Divider(
+                modifier = spaceModifier, color = darkerGrey)
+
+        Text(text = "CalculatorDigits",
+                modifier = Modifier.preferredHeight(150.dp))
     }
+
 }
 
 @Composable
 fun CalculatorDigitsContainer() {
     //Column(modifier = Modifier.aspectRatio(0.6f)) {
-        EmptySpace()
-        CalculatorDigits()
+    EmptySpace()
+    CalculatorDigits()
     //}
 }
 
