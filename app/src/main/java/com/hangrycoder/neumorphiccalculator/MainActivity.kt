@@ -3,14 +3,11 @@ package com.hangrycoder.neumorphiccalculator
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
-import androidx.compose.state
 import androidx.ui.core.Modifier
 import androidx.ui.core.setContent
 import androidx.ui.foundation.Text
-import androidx.ui.graphics.Color
 import androidx.ui.layout.Column
 import androidx.ui.layout.ColumnScope.weight
-import androidx.ui.layout.fillMaxHeight
 import androidx.ui.layout.padding
 import androidx.ui.material.*
 import androidx.ui.tooling.preview.Preview
@@ -41,7 +38,8 @@ fun MyScreenContent() {
     Column(modifier = Modifier.weight(1f)) {
         TopAppBar(title = {
             Text(text = "Calculator",
-            color = darkBlue)
+                    color = darkBlue,
+                    style = MaterialTheme.typography.h4)
         })
     }
 }
