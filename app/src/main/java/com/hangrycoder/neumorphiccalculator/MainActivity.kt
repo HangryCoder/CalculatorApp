@@ -103,21 +103,15 @@ fun CalculatorButtonsContainer() {
             .preferredHeight(150.dp)
             .padding(16.dp, 0.dp, 16.dp, 24.dp)
 
-    /* Column(modifier = calculatorButtonsContainerModifier) {
-         EmptySpace()
-         CalculatorDigits()
-     }*/
-
     Box(modifier = calculatorButtonsContainerModifier) {
         val spaceModifier = Modifier
                 .preferredHeight(50.dp)
-                .clip(RoundedCornerShape(16.dp))
+                .clip(RoundedCornerShape(24.dp))
 
-        Divider(
-                modifier = spaceModifier, color = darkerGrey)
+        Divider(modifier = spaceModifier, color = darkerGrey)
 
         Text(text = "CalculatorDigits",
-                modifier = Modifier.preferredHeight(150.dp))
+                modifier = Modifier.preferredHeight(150.dp).padding(0.dp, 16.dp))
     }
 
 }
@@ -134,17 +128,15 @@ fun CalculatorDigitsContainer() {
 fun EmptySpace() {
     val spaceModifier = Modifier
             .aspectRatio(0.2f)
-            .clip(RoundedCornerShape(16.dp))
-    Surface(modifier = spaceModifier, color = darkerGrey) {
-
-    }
+            .clip(RoundedCornerShape(24.dp))
+    Divider(modifier = spaceModifier, color = darkerGrey)
 }
 
 @Composable
 fun CalculatorDigits() {
-    Surface(modifier = Modifier.aspectRatio(0.8f)) {
-        Text(text = "CalculatorDigits")
-    }
+    //Surface(modifier = Modifier.aspectRatio(0.8f)) {
+    Text(text = "CalculatorDigits", modifier = Modifier.aspectRatio(0.8f))
+    //}
 }
 
 @Composable
