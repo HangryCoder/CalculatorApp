@@ -7,8 +7,8 @@ import androidx.ui.material.darkColorPalette
 import androidx.ui.material.lightColorPalette
 
 private val DarkColorPalette = darkColorPalette(
-        primary = purple200,
-        primaryVariant = purple700,
+        primary = darkGrey,
+        primaryVariant = darkGrey,
         secondary = teal200
 )
 
@@ -30,11 +30,11 @@ private val LightColorPalette = lightColorPalette(
 
 @Composable
 fun NeumorphicCalculatorTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
-    val colors = /*if (darkTheme) {
+    val colors = if (darkTheme) {
         DarkColorPalette
-    } else {*/
-            LightColorPalette
-    // }
+    } else {
+        LightColorPalette
+    }
 
     MaterialTheme(
             colors = colors,

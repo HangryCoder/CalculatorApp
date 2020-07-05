@@ -2,10 +2,10 @@ package com.hangrycoder.neumorphiccalculator.ui
 
 import androidx.ui.graphics.Color
 
-val purple200 = Color(0xFFBB86FC)
-val purple500 = Color(0xFF6200EE)
-val purple700 = Color(0xFF3700B3)
 val teal200 = Color(0xFF03DAC5)
 
 val lightBlue = Color(0xFFE3F3F7)
 val darkBlue = Color(0xFF7490BC)
+
+val darkGrey = Color(0xFF2B4247)
+val lightGrey = Color(0xFF5D7276)

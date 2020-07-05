@@ -14,6 +14,8 @@ import androidx.ui.tooling.preview.Preview
 import androidx.ui.unit.dp
 import com.hangrycoder.neumorphiccalculator.ui.NeumorphicCalculatorTheme
 import com.hangrycoder.neumorphiccalculator.ui.darkBlue
+import com.hangrycoder.neumorphiccalculator.ui.darkGrey
+import com.hangrycoder.neumorphiccalculator.ui.lightGrey
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,9 +40,9 @@ fun MyScreenContent() {
     Column(modifier = Modifier.weight(1f)) {
         TopAppBar(title = {
             Text(text = "Calculator",
-                    color = darkBlue,
+                    color = lightGrey,
                     style = MaterialTheme.typography.h4)
-        })
+        }, backgroundColor = darkGrey)
     }
 }
 

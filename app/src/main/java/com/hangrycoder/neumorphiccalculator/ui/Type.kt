@@ -28,6 +28,6 @@ val typography = Typography(
                         resId = R.font.googlesans_bold
                 )),
                 fontWeight = FontWeight.Normal,
-                fontSize = 18.sp
+                fontSize = 20.sp
         )
 )
