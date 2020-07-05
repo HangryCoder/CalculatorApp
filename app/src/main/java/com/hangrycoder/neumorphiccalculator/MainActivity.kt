@@ -34,7 +34,9 @@ class MainActivity : AppCompatActivity() {
 @Composable
 fun MyApp(content: @Composable() () -> Unit) {
     NeumorphicCalculatorTheme {
-        content()
+        Surface(color = darkGrey) {
+            content()
+        }
     }
 }
 
@@ -52,20 +54,15 @@ fun Toolbar() {
         Text(text = "Calculator",
                 color = lightGrey,
                 style = MaterialTheme.typography.h4)
-    }, backgroundColor = darkGrey)
+    }, backgroundColor = darkGrey,
+            elevation = 0.dp)
 }
 
 @Composable
 fun DigitalInputContainer(resId: Int) {
     val image = imageResource(resId)
-    Image(image)
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!",
-            modifier = Modifier.padding(24.dp),
-            style = MaterialTheme.typography.body1)
+    Image(image,
+            modifier = Modifier.padding(16.dp, 0.dp))
 }
 
 @Preview(showBackground = true)
