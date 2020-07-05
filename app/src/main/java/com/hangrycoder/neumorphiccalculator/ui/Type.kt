@@ -29,5 +29,13 @@ val typography = Typography(
                 )),
                 fontWeight = FontWeight.Normal,
                 fontSize = 20.sp
+        ),
+
+        h5 = TextStyle(
+                fontFamily = fontFamily(font(
+                        resId = R.font.digital_7
+                )),
+                fontWeight = FontWeight.Normal,
+                fontSize = 36.sp
         )
 )
