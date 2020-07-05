@@ -9,15 +9,14 @@ import androidx.ui.core.setContent
 import androidx.ui.foundation.Text
 import androidx.ui.graphics.Color
 import androidx.ui.layout.Column
+import androidx.ui.layout.ColumnScope.weight
 import androidx.ui.layout.fillMaxHeight
 import androidx.ui.layout.padding
-import androidx.ui.material.Button
-import androidx.ui.material.Divider
-import androidx.ui.material.MaterialTheme
-import androidx.ui.material.Surface
+import androidx.ui.material.*
 import androidx.ui.tooling.preview.Preview
 import androidx.ui.unit.dp
 import com.hangrycoder.neumorphiccalculator.ui.NeumorphicCalculatorTheme
+import com.hangrycoder.neumorphiccalculator.ui.darkBlue
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,36 +32,17 @@ class MainActivity : AppCompatActivity() {
 @Composable
 fun MyApp(content: @Composable() () -> Unit) {
     NeumorphicCalculatorTheme {
-        Surface(color = Color.Yellow) {
-            content()
-        }
+        content()
     }
 }
 
 @Composable
-fun Counter(count: Int, updateCount: (Int) -> Unit) {
-    Button(onClick = { updateCount(count + 1) },
-            backgroundColor = if (count > 5) Color.Green else Color.White
-    ) {
-        Text("I have been clicked $count times")
-    }
-}
-
-@Composable
-fun MyScreenContent(names: List<String> = listOf("Android", "there")) {
-    val counterState = state { 0 }
-
-    Column(modifier = Modifier.fillMaxHeight()) {
-        Column(modifier = Modifier.weight(1f)) {
-            for (name in names) {
-                Greeting(name = name)
-                Divider(color = Color.Magenta)
-            }
-        }
-        Counter(count = counterState.value,
-                updateCount = { newCount ->
-                    counterState.value = newCount
-                })
+fun MyScreenContent() {
+    Column(modifier = Modifier.weight(1f)) {
+        TopAppBar(title = {
+            Text(text = "Calculator",
+            color = darkBlue)
+        })
     }
 }
 

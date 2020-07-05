@@ -13,9 +13,10 @@ private val DarkColorPalette = darkColorPalette(
 )
 
 private val LightColorPalette = lightColorPalette(
-        primary = purple500,
-        primaryVariant = purple700,
-        secondary = teal200
+        primary = lightBlue,
+        primaryVariant = lightBlue,
+        secondary = teal200,
+        background = lightBlue
 
         /* Other default colors to override
     background = Color.White,
@@ -29,11 +30,11 @@ private val LightColorPalette = lightColorPalette(
 
 @Composable
 fun NeumorphicCalculatorTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
-    val colors = if (darkTheme) {
+    val colors = /*if (darkTheme) {
         DarkColorPalette
-    } else {
-        LightColorPalette
-    }
+    } else {*/
+            LightColorPalette
+    // }
 
     MaterialTheme(
             colors = colors,
