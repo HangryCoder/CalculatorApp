@@ -28,10 +28,18 @@ val typography = Typography(
                         resId = R.font.googlesans_bold
                 )),
                 fontWeight = FontWeight.Normal,
-                fontSize = 20.sp
+                fontSize = 24.sp
         ),
 
         h5 = TextStyle(
+                fontFamily = fontFamily(font(
+                        resId = R.font.digital_7
+                )),
+                fontWeight = FontWeight.Normal,
+                fontSize = 20.sp
+        ),
+
+        h2 = TextStyle(
                 fontFamily = fontFamily(font(
                         resId = R.font.digital_7
                 )),

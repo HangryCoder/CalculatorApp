@@ -50,6 +50,7 @@ fun Toolbar() {
     TopAppBar(title = {
         Text(text = "Calculator",
                 color = lightGrey,
+                modifier = Modifier.padding(0.dp, 16.dp),
                 style = MaterialTheme.typography.h4)
     }, backgroundColor = darkGrey,
             elevation = 0.dp)
@@ -57,9 +58,9 @@ fun Toolbar() {
 
 @Composable
 fun DigitalInputContainer(resId: Int) {
-    Stack(modifier = Modifier.padding(16.dp)) {
+    Stack(modifier = Modifier.padding(16.dp, 24.dp)) {
         val imageModifier = Modifier
-                .preferredHeight(150.dp)
+                .preferredHeight(130.dp)
                 .fillMaxWidth()
                 .clip(shape = RoundedCornerShape(8.dp))
 
@@ -68,11 +69,25 @@ fun DigitalInputContainer(resId: Int) {
                 modifier = imageModifier,
                 contentScale = ContentScale.Crop)
 
-        Text(text = "250",
-                modifier = Modifier.gravity(Alignment.BottomEnd)
-                        .padding(16.dp),
+        Text(text = "100 + 25 + 25 + 100",
+                modifier = Modifier.gravity(Alignment.TopEnd)
+                        .padding(0.dp, 24.dp, 24.dp, 0.dp),
                 color = darkGrey,
                 style = MaterialTheme.typography.h5
+        )
+
+        Text(text = "=",
+                modifier = Modifier.gravity(Alignment.BottomStart)
+                        .padding(24.dp, 0.dp, 0.dp, 24.dp),
+                color = darkGrey,
+                style = MaterialTheme.typography.h2
+        )
+
+        Text(text = "250",
+                modifier = Modifier.gravity(Alignment.BottomEnd)
+                        .padding(0.dp, 0.dp, 24.dp, 24.dp),
+                color = darkGrey,
+                style = MaterialTheme.typography.h2
         )
     }
 
