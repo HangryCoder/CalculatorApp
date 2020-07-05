@@ -10,10 +10,13 @@ import androidx.ui.foundation.Text
 import androidx.ui.graphics.Color
 import androidx.ui.layout.Column
 import androidx.ui.layout.fillMaxHeight
+import androidx.ui.layout.padding
 import androidx.ui.material.Button
 import androidx.ui.material.Divider
+import androidx.ui.material.MaterialTheme
 import androidx.ui.material.Surface
 import androidx.ui.tooling.preview.Preview
+import androidx.ui.unit.dp
 import com.hangrycoder.neumorphiccalculator.ui.NeumorphicCalculatorTheme
 
 class MainActivity : AppCompatActivity() {
@@ -65,7 +68,9 @@ fun MyScreenContent(names: List<String> = listOf("Android", "there")) {
 
 @Composable
 fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+    Text(text = "Hello $name!",
+            modifier = Modifier.padding(24.dp),
+            style = MaterialTheme.typography.body1)
 }
 
 @Preview(showBackground = true)
