@@ -125,7 +125,7 @@ fun CalculatorDigitsContainer() {
 fun EmptySpace() {
     val spaceModifier = Modifier
             .weight(0.1f)
-            .clip(RoundedCornerShape(24.dp))
+            .clip(RoundedCornerShape(32.dp))
     Divider(modifier = spaceModifier, color = darkerGrey)
 }
 
@@ -144,11 +144,11 @@ fun CalculatorDigits() {
 @Composable
 fun CalculatorFunctionalButtons() {
     val spaceModifier = Modifier
-            .preferredHeight(50.dp)
+            .fillMaxHeight()
             .weight(0.2f)
-            .clip(RoundedCornerShape(24.dp))
+            .clip(RoundedCornerShape(32.dp))
 
-    Divider(modifier = spaceModifier, color = Color.White)
+    Divider(modifier = spaceModifier, color = darkerGrey)
 }
 
 @Preview(showBackground = true)
