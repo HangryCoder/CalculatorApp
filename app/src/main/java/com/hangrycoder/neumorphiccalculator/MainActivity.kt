@@ -99,38 +99,21 @@ fun DigitalInputContainer(resId: Int) {
 
 @Composable
 fun CalculatorButtonsContainer() {
-    /* val calculatorButtonsContainerModifier = Modifier
-             .preferredHeight(150.dp)
-             .padding(16.dp, 0.dp, 16.dp, 24.dp)
-
-     Box(modifier = calculatorButtonsContainerModifier) {
-         val spaceModifier = Modifier
-                 .preferredHeight(50.dp)
-                 .clip(RoundedCornerShape(24.dp))
-
-         Divider(modifier = spaceModifier, color = darkerGrey)
-
-         Text(text = "CalculatorDigits",
-                 modifier = Modifier.preferredHeight(150.dp).padding(0.dp, 16.dp))
-     }*/
-
     val calculatorButtonsContainerModifier = Modifier
             .fillMaxSize()
             .padding(16.dp, 0.dp, 16.dp, 24.dp)
 
-    // Row(modifier = calculatorButtonsContainerModifier) {
-    CalculatorDigitsContainer()
-    //    CalculatorFunctionalButtons()
-    //}
-
+    Row(modifier = calculatorButtonsContainerModifier) {
+        CalculatorDigitsContainer()
+        CalculatorFunctionalButtons()
+    }
 }
 
 @Composable
 fun CalculatorDigitsContainer() {
     val calculatorDigitsContainerModifier = Modifier
-            .preferredHeight(150.dp)
             .weight(0.8f)
-            .padding(16.dp, 0.dp, 16.dp, 24.dp)
+            .padding(0.dp, 0.dp, 16.dp, 0.dp)
 
     Column(modifier = calculatorDigitsContainerModifier) {
         EmptySpace()
