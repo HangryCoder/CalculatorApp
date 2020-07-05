@@ -4,15 +4,16 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.compose.state
+import androidx.ui.core.Modifier
 import androidx.ui.core.setContent
 import androidx.ui.foundation.Text
 import androidx.ui.graphics.Color
 import androidx.ui.layout.Column
+import androidx.ui.layout.fillMaxHeight
 import androidx.ui.material.Button
 import androidx.ui.material.Divider
 import androidx.ui.material.Surface
 import androidx.ui.tooling.preview.Preview
-import androidx.ui.unit.dp
 import com.hangrycoder.neumorphiccalculator.ui.NeumorphicCalculatorTheme
 
 class MainActivity : AppCompatActivity() {
@@ -37,10 +38,8 @@ fun MyApp(content: @Composable() () -> Unit) {
 
 @Composable
 fun Counter(count: Int, updateCount: (Int) -> Unit) {
-
-
     Button(onClick = { updateCount(count + 1) }) {
-        Text("I have been clicked ${count} times")
+        Text("I have been clicked $count times")
     }
 }
 
@@ -48,12 +47,13 @@ fun Counter(count: Int, updateCount: (Int) -> Unit) {
 fun MyScreenContent(names: List<String> = listOf("Android", "there")) {
     val counterState = state { 0 }
 
-    Column {
-        for (name in names) {
-            Greeting(name = name)
-            Divider(color = Color.Magenta)
+    Column(modifier = Modifier.fillMaxHeight()) {
+        Column(modifier = Modifier.weight(1f)) {
+            for (name in names) {
+                Greeting(name = name)
+                Divider(color = Color.Magenta)
+            }
         }
-        Divider(color = Color.Blue, thickness = 32.dp)
         Counter(count = counterState.value,
                 updateCount = { newCount ->
                     counterState.value = newCount
