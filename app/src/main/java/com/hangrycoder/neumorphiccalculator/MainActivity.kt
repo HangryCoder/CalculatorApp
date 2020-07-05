@@ -112,7 +112,7 @@ fun CalculatorButtonsContainer() {
 @Composable
 fun CalculatorDigitsContainer() {
     val calculatorDigitsContainerModifier = Modifier
-            .weight(0.8f)
+            .weight(0.82f)
             .padding(0.dp, 0.dp, 16.dp, 0.dp)
 
     Column(modifier = calculatorDigitsContainerModifier) {
@@ -145,7 +145,7 @@ fun CalculatorDigits() {
 fun CalculatorFunctionalButtons() {
     val spaceModifier = Modifier
             .fillMaxHeight()
-            .weight(0.2f)
+            .weight(0.18f)
             .clip(RoundedCornerShape(32.dp))
 
     Divider(modifier = spaceModifier, color = darkerGrey)
