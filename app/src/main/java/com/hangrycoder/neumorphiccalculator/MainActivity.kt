@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.ui.core.*
+import androidx.ui.foundation.Icon
 import androidx.ui.foundation.Image
 import androidx.ui.foundation.Text
 import androidx.ui.foundation.shape.corner.CircleShape
@@ -11,6 +12,8 @@ import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.layout.*
 import androidx.ui.layout.ColumnScope.weight
 import androidx.ui.material.*
+import androidx.ui.material.icons.Icons
+import androidx.ui.material.icons.filled.Add
 import androidx.ui.res.imageResource
 import androidx.ui.res.vectorResource
 import androidx.ui.text.style.TextAlign
@@ -191,11 +194,17 @@ fun CalculatorFunctionalButtons() {
 
         Divider(modifier = spaceModifier, color = darkerGrey)
 
+        val fabIcon = vectorResource(id = R.drawable.ic_fab)
         val fabModifier = Modifier.gravity(Alignment.BottomCenter)
                 .fillMaxWidth()
                 .aspectRatio(1f)
-        val fabIcon = vectorResource(id = R.drawable.ic_fab)
         Image(fabIcon, modifier = fabModifier)
+
+        /*FloatingActionButton(onClick = { },
+                modifier = fabModifier) {
+            val fabIcon = vectorResource(id = R.drawable.ic_fab)
+            Image(fabIcon, modifier = Modifier.fillMaxWidth())
+        }*/
 
         Column(modifier = Modifier.fillMaxSize()) {
             operationsColumn.forEach { operationColumn ->
