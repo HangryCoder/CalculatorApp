@@ -11,6 +11,7 @@ import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.layout.*
 import androidx.ui.layout.ColumnScope.weight
 import androidx.ui.material.*
+import androidx.ui.res.imageResource
 import androidx.ui.res.vectorResource
 import androidx.ui.text.style.TextAlign
 import androidx.ui.tooling.preview.Preview
@@ -154,12 +155,17 @@ fun DigitsPanel() {
 @Composable
 fun DigitItem(text: String) {
     Stack(modifier = Modifier.weight(0.33f)) {
-        val imageModifier = Modifier
+        val imageBackgroundModifier = Modifier
                 .fillMaxWidth()
-                .clip(CircleShape)
 
-      /*  val image = vectorResource(id = R.drawable.ic_launcher_background)
-        Image(image, modifier = imageModifier)*/
+        val imageBackground = imageResource(id = R.drawable.digit_item_background)
+        Image(imageBackground, modifier = imageBackgroundModifier)
+
+        val imageForegroundModifier = Modifier
+                .fillMaxWidth()
+
+        val imageForeground = imageResource(id = R.drawable.digit_item_foreground)
+        Image(imageForeground, modifier = imageForegroundModifier)
 
         Text(text = text, textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxSize(),
