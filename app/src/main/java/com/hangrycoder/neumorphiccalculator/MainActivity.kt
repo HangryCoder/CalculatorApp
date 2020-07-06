@@ -41,8 +41,7 @@ fun MyApp(content: @Composable() () -> Unit) {
 fun MyScreenContent() {
     Column(modifier = Modifier.weight(1f)) {
         Toolbar()
-        DigitalInputContainer(resId = R.drawable.ic_digital_input_container)
-        CalculatorButtonsContainer()
+        CalculatorMainContent()
     }
 }
 
@@ -58,14 +57,21 @@ fun Toolbar() {
 }
 
 @Composable
-fun DigitalInputContainer(resId: Int) {
-    Stack(modifier = Modifier.padding(16.dp, 24.dp)) {
+fun CalculatorMainContent() {
+    Column(modifier = Modifier.weight(1f)) {
+        DigitalInputContainer()
+        CalculatorButtonsContainer()
+    }
+}
+
+@Composable
+fun DigitalInputContainer() {
+    Stack(modifier = Modifier.padding(16.dp, 24.dp).weight(0.25f)) {
         val imageModifier = Modifier
-                .preferredHeight(130.dp)
-                .fillMaxWidth()
+                .fillMaxSize()
                 .clip(shape = RoundedCornerShape(8.dp))
 
-        val image = vectorResource(resId)
+        val image = vectorResource(id = R.drawable.ic_digital_input_container)
         Image(image,
                 modifier = imageModifier,
                 contentScale = ContentScale.Crop)
@@ -97,6 +103,7 @@ fun DigitalInputContainer(resId: Int) {
 @Composable
 fun CalculatorButtonsContainer() {
     val calculatorButtonsContainerModifier = Modifier
+            .weight(0.75f)
             .fillMaxSize()
             .padding(16.dp, 0.dp, 16.dp, 24.dp)
 
