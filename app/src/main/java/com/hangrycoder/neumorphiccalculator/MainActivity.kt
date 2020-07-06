@@ -156,19 +156,22 @@ fun DigitsPanel() {
 fun DigitItem(text: String) {
     Stack(modifier = Modifier.weight(0.33f)) {
         val imageBackgroundModifier = Modifier
+                .gravity(Alignment.Center)
+                .padding(16.dp, 20.dp, 0.dp, 0.dp)
                 .fillMaxWidth()
 
         val imageBackground = imageResource(id = R.drawable.digit_item_background)
         Image(imageBackground, modifier = imageBackgroundModifier)
 
         val imageForegroundModifier = Modifier
+                .gravity(Alignment.Center)
                 .fillMaxWidth()
 
         val imageForeground = imageResource(id = R.drawable.digit_item_foreground)
         Image(imageForeground, modifier = imageForegroundModifier)
 
         Text(text = text, textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier.gravity(Alignment.Center),
                 color = lightBrightGrey,
                 style = MaterialTheme.typography.h3)
     }

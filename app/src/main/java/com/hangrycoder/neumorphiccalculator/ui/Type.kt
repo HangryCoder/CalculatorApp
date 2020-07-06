@@ -50,7 +50,7 @@ val typography = Typography(
                 fontFamily = fontFamily(font(
                         resId = R.font.googlesans_regular
                 )),
-                fontSize = 28.sp
+                fontSize = 26.sp
         )
 
 )
