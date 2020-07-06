@@ -117,7 +117,7 @@ fun CalculatorDigitsContainer() {
 
     Column(modifier = calculatorDigitsContainerModifier) {
         EmptySpace()
-        CalculatorDigits()
+        DigitsPanel()
     }
 }
 
@@ -129,36 +129,26 @@ fun EmptySpace() {
     Divider(modifier = spaceModifier, color = darkerGrey)
 }
 
-@Composable
-fun CalculatorDigits() {
-    val calculatorDigitsModifier = Modifier
-            .weight(0.9f)
-            .padding(0.dp, 16.dp, 0.dp, 0.dp)
-            .fillMaxSize()
-
-    Surface(modifier = calculatorDigitsModifier) {
-        // Text(text = "CalculatorDigits")
-        NumbersPanel()
-    }
-}
-
 private val operationsColumn = listOf("Delete", "÷", "x", "-", "+")
-private val numberColumns = listOf(
+private val digitsColumns = listOf(
         listOf("1", "4", "7", "."),
         listOf("2", "5", "8", "0"),
         listOf("3", "6", "9", "00")
 )
 
 @Composable()
-fun NumbersPanel() {
-    Stack {
-        Row(modifier = Modifier.fillMaxSize()) {
-            numberColumns.forEach { numberColumn ->
-                Column(modifier = Modifier.weight(1f)) {
-                    numberColumn.forEach { text ->
-                        // MainContentButton(text)
-                        Text(text = text, modifier = Modifier.weight(0.33f))
-                    }
+fun DigitsPanel() {
+    val digitsPanelModifier = Modifier
+            .weight(0.9f)
+            .padding(0.dp, 16.dp, 0.dp, 0.dp)
+            .fillMaxSize()
+
+    Row(modifier = digitsPanelModifier) {
+        digitsColumns.forEach { digitColumn ->
+            Column(modifier = Modifier.weight(1f)) {
+                digitColumn.forEach { text ->
+                    // MainContentButton(text)
+                    Text(text = text, modifier = Modifier.weight(0.33f))
                 }
             }
         }
