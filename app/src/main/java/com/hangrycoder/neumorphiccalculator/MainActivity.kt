@@ -137,7 +137,31 @@ fun CalculatorDigits() {
             .fillMaxSize()
 
     Surface(modifier = calculatorDigitsModifier) {
-        Text(text = "CalculatorDigits")
+        // Text(text = "CalculatorDigits")
+        NumbersPanel()
+    }
+}
+
+private val operationsColumn = listOf("Delete", "÷", "x", "-", "+")
+private val numberColumns = listOf(
+        listOf("1", "4", "7", "."),
+        listOf("2", "5", "8", "0"),
+        listOf("3", "6", "9", "00")
+)
+
+@Composable()
+fun NumbersPanel() {
+    Stack {
+        Row(modifier = Modifier.fillMaxSize()) {
+            numberColumns.forEach { numberColumn ->
+                Column(modifier = Modifier.weight(1f)) {
+                    numberColumn.forEach { text ->
+                        // MainContentButton(text)
+                        Text(text = text, modifier = Modifier.weight(0.33f))
+                    }
+                }
+            }
+        }
     }
 }
 
