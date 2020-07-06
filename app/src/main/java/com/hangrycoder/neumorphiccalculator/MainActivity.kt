@@ -4,24 +4,18 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.ui.core.*
-import androidx.ui.foundation.Box
 import androidx.ui.foundation.Image
 import androidx.ui.foundation.Text
 import androidx.ui.foundation.shape.corner.CircleShape
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
-import androidx.ui.graphics.Color
 import androidx.ui.layout.*
 import androidx.ui.layout.ColumnScope.weight
 import androidx.ui.material.*
-import androidx.ui.res.imageResource
 import androidx.ui.res.vectorResource
 import androidx.ui.text.style.TextAlign
 import androidx.ui.tooling.preview.Preview
 import androidx.ui.unit.dp
-import com.hangrycoder.neumorphiccalculator.ui.NeumorphicCalculatorTheme
-import com.hangrycoder.neumorphiccalculator.ui.darkGrey
-import com.hangrycoder.neumorphiccalculator.ui.darkerGrey
-import com.hangrycoder.neumorphiccalculator.ui.lightGrey
+import com.hangrycoder.neumorphiccalculator.ui.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -164,11 +158,13 @@ fun DigitItem(text: String) {
                 .fillMaxWidth()
                 .clip(CircleShape)
 
-        val image = vectorResource(id = R.drawable.ic_launcher_background)
-        Image(image, modifier = imageModifier)
+      /*  val image = vectorResource(id = R.drawable.ic_launcher_background)
+        Image(image, modifier = imageModifier)*/
 
         Text(text = text, textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxSize())
+                modifier = Modifier.fillMaxSize(),
+                color = lightBrightGrey,
+                style = MaterialTheme.typography.h3)
     }
 }
 

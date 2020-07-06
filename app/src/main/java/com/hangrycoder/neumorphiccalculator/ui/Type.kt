@@ -45,5 +45,12 @@ val typography = Typography(
                 )),
                 fontWeight = FontWeight.Normal,
                 fontSize = 36.sp
+        ),
+        h3 = TextStyle(
+                fontFamily = fontFamily(font(
+                        resId = R.font.googlesans_regular
+                )),
+                fontSize = 28.sp
         )
+
 )
