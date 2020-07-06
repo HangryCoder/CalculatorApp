@@ -116,7 +116,7 @@ fun CalculatorButtonsContainer() {
 @Composable
 fun CalculatorDigitsContainer() {
     val calculatorDigitsContainerModifier = Modifier
-            .weight(0.82f)
+            .weight(0.81f)
             .padding(0.dp, 0.dp, 16.dp, 0.dp)
 
     Column(modifier = calculatorDigitsContainerModifier) {
@@ -128,8 +128,8 @@ fun CalculatorDigitsContainer() {
 @Composable
 fun EmptySpace() {
     val spaceModifier = Modifier
-            .weight(0.1f)
-            .clip(RoundedCornerShape(32.dp))
+            .weight(0.12f)
+            .clip(RoundedCornerShape(48.dp))
     Divider(modifier = spaceModifier, color = darkerGrey)
 }
 
@@ -142,7 +142,7 @@ private val digitsColumns = listOf(
 @Composable()
 fun DigitsPanel() {
     val digitsPanelModifier = Modifier
-            .weight(0.9f)
+            .weight(0.88f)
             .padding(0.dp, 16.dp, 0.dp, 0.dp)
             .fillMaxSize()
 
@@ -188,12 +188,12 @@ private val operationsColumn = listOf("÷", "×", "-", "+", "=")
 fun CalculatorFunctionalButtons() {
     val calculatorFunctionalModifier = Modifier
             .fillMaxHeight()
-            .weight(0.18f)
+            .weight(0.19f)
 
     Stack(modifier = calculatorFunctionalModifier) {
         val spaceModifier = Modifier
                 .fillMaxSize()
-                .clip(RoundedCornerShape(32.dp))
+                .clip(RoundedCornerShape(48.dp))
 
         Divider(modifier = spaceModifier, color = darkerGrey)
 
