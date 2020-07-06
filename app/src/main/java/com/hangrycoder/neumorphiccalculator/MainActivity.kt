@@ -200,14 +200,23 @@ fun CalculatorFunctionalButtons() {
                 }
             }
         }
+
+        val fabModifier = Modifier.gravity(Alignment.BottomCenter)
+                .fillMaxWidth()
+                .aspectRatio(1f)
+        val fabIcon = vectorResource(id = R.drawable.ic_fab)
+        Image(fabIcon, modifier = fabModifier)
     }
 }
 
 @Composable
 fun FunctionalItem(text: String) {
     Stack(modifier = Modifier.weight(0.25f)) {
-        Text(text = text, textAlign = TextAlign.Center,
-                modifier = Modifier.gravity(Alignment.Center),
+        val textModifier = Modifier.gravity(Alignment.Center)
+
+        Text(text = text,
+                textAlign = TextAlign.Center,
+                modifier = textModifier,
                 color = lightBrightGrey,
                 style = MaterialTheme.typography.h3)
     }
