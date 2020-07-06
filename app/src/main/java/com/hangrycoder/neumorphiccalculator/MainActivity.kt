@@ -7,12 +7,15 @@ import androidx.ui.core.*
 import androidx.ui.foundation.Box
 import androidx.ui.foundation.Image
 import androidx.ui.foundation.Text
+import androidx.ui.foundation.shape.corner.CircleShape
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.graphics.Color
 import androidx.ui.layout.*
 import androidx.ui.layout.ColumnScope.weight
 import androidx.ui.material.*
+import androidx.ui.res.imageResource
 import androidx.ui.res.vectorResource
+import androidx.ui.text.style.TextAlign
 import androidx.ui.tooling.preview.Preview
 import androidx.ui.unit.dp
 import com.hangrycoder.neumorphiccalculator.ui.NeumorphicCalculatorTheme
@@ -147,11 +150,25 @@ fun DigitsPanel() {
         digitsColumns.forEach { digitColumn ->
             Column(modifier = Modifier.weight(1f)) {
                 digitColumn.forEach { text ->
-                    // MainContentButton(text)
-                    Text(text = text, modifier = Modifier.weight(0.33f))
+                    DigitItem(text = text)
                 }
             }
         }
+    }
+}
+
+@Composable
+fun DigitItem(text: String) {
+    Stack(modifier = Modifier.weight(0.33f)) {
+        val imageModifier = Modifier
+                .fillMaxWidth()
+                .clip(CircleShape)
+
+        val image = vectorResource(id = R.drawable.ic_launcher_background)
+        Image(image, modifier = imageModifier)
+
+        Text(text = text, textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxSize())
     }
 }
 
