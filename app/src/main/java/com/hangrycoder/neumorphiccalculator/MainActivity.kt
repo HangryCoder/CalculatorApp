@@ -176,7 +176,7 @@ fun DigitItem(text: String) {
     }
 }
 
-private val operationsColumn = listOf("÷", "x", "-", "+", "=")
+private val operationsColumn = listOf("÷", "×", "-", "+", "=")
 
 @Composable
 fun CalculatorFunctionalButtons() {
@@ -191,6 +191,12 @@ fun CalculatorFunctionalButtons() {
 
         Divider(modifier = spaceModifier, color = darkerGrey)
 
+        val fabModifier = Modifier.gravity(Alignment.BottomCenter)
+                .fillMaxWidth()
+                .aspectRatio(1f)
+        val fabIcon = vectorResource(id = R.drawable.ic_fab)
+        Image(fabIcon, modifier = fabModifier)
+
         Column(modifier = Modifier.fillMaxSize()) {
             operationsColumn.forEach { operationColumn ->
                 Row(modifier = Modifier.weight(1f)) {
@@ -200,18 +206,12 @@ fun CalculatorFunctionalButtons() {
                 }
             }
         }
-
-        val fabModifier = Modifier.gravity(Alignment.BottomCenter)
-                .fillMaxWidth()
-                .aspectRatio(1f)
-        val fabIcon = vectorResource(id = R.drawable.ic_fab)
-        Image(fabIcon, modifier = fabModifier)
     }
 }
 
 @Composable
 fun FunctionalItem(text: String) {
-    Stack(modifier = Modifier.weight(0.25f)) {
+    Stack(modifier = Modifier.weight(0.25f).fillMaxSize()) {
         val textModifier = Modifier.gravity(Alignment.Center)
 
         Text(text = text,
