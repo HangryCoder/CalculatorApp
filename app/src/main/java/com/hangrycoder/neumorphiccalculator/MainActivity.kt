@@ -127,7 +127,6 @@ fun EmptySpace() {
     Divider(modifier = spaceModifier, color = darkerGrey)
 }
 
-private val operationsColumn = listOf("Delete", "÷", "x", "-", "+")
 private val digitsColumns = listOf(
         listOf("1", "4", "7", "."),
         listOf("2", "5", "8", "0"),
@@ -177,14 +176,41 @@ fun DigitItem(text: String) {
     }
 }
 
+private val operationsColumn = listOf("÷", "x", "-", "+", "=")
+
 @Composable
 fun CalculatorFunctionalButtons() {
-    val spaceModifier = Modifier
+    val calculatorFunctionalModifier = Modifier
             .fillMaxHeight()
             .weight(0.18f)
-            .clip(RoundedCornerShape(32.dp))
 
-    Divider(modifier = spaceModifier, color = darkerGrey)
+    Stack(modifier = calculatorFunctionalModifier) {
+        val spaceModifier = Modifier
+                .fillMaxSize()
+                .clip(RoundedCornerShape(32.dp))
+
+        Divider(modifier = spaceModifier, color = darkerGrey)
+
+        Column(modifier = Modifier.fillMaxSize()) {
+            operationsColumn.forEach { operationColumn ->
+                Row(modifier = Modifier.weight(1f)) {
+                    operationColumn.forEach { text ->
+                        FunctionalItem(text.toString())
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun FunctionalItem(text: String) {
+    Stack(modifier = Modifier.weight(0.25f)) {
+        Text(text = text, textAlign = TextAlign.Center,
+                modifier = Modifier.gravity(Alignment.Center),
+                color = lightBrightGrey,
+                style = MaterialTheme.typography.h3)
+    }
 }
 
 @Preview(showBackground = true)
