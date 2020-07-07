@@ -22,4 +22,9 @@
     <style name="Theme.NeumorphicCalculator.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.NeumorphicCalculator.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="CustomShapeAppearance">
+        <item name="neumorph_cornerFamily">oval</item>
+        <item name="neumorph_cornerSize">32dp</item>
+    </style>
 </resources>

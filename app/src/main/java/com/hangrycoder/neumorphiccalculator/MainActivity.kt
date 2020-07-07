@@ -15,7 +15,9 @@ import androidx.ui.res.vectorResource
 import androidx.ui.text.style.TextAlign
 import androidx.ui.tooling.preview.Preview
 import androidx.ui.unit.dp
+import androidx.ui.viewinterop.AndroidView
 import com.hangrycoder.neumorphiccalculator.ui.*
+import soup.neumorphism.NeumorphButton
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,13 +49,17 @@ fun MyScreenContent() {
 
 @Composable
 fun Toolbar() {
-    TopAppBar(title = {
-        Text(text = "Calculator",
+    TopAppBar(
+        title = {
+            Text(
+                text = "Calculator",
                 color = lightGrey,
                 modifier = Modifier.padding(0.dp, 16.dp),
-                style = MaterialTheme.typography.h4)
-    }, backgroundColor = darkGrey,
-            elevation = 0.dp)
+                style = MaterialTheme.typography.h4
+            )
+        }, backgroundColor = darkGrey,
+        elevation = 0.dp
+    )
 }
 
 @Composable
@@ -68,33 +74,38 @@ fun CalculatorMainContent() {
 fun DigitalInputContainer() {
     Stack(modifier = Modifier.padding(16.dp, 24.dp).weight(0.25f)) {
         val imageModifier = Modifier
-                .fillMaxSize()
-                .clip(shape = RoundedCornerShape(8.dp))
+            .fillMaxSize()
+            .clip(shape = RoundedCornerShape(8.dp))
 
         val image = vectorResource(id = R.drawable.ic_digital_input_container)
-        Image(image,
-                modifier = imageModifier,
-                contentScale = ContentScale.Crop)
-
-        Text(text = "100 + 25 + 25 + 100",
-                modifier = Modifier.gravity(Alignment.TopEnd)
-                        .padding(0.dp, 24.dp, 24.dp, 0.dp),
-                color = darkGrey,
-                style = MaterialTheme.typography.h5
+        Image(
+            image,
+            modifier = imageModifier,
+            contentScale = ContentScale.Crop
         )
 
-        Text(text = "=",
-                modifier = Modifier.gravity(Alignment.BottomStart)
-                        .padding(24.dp, 0.dp, 0.dp, 24.dp),
-                color = darkGrey,
-                style = MaterialTheme.typography.h2
+        Text(
+            text = "100 + 25 + 25 + 100",
+            modifier = Modifier.gravity(Alignment.TopEnd)
+                .padding(0.dp, 24.dp, 24.dp, 0.dp),
+            color = darkGrey,
+            style = MaterialTheme.typography.h5
         )
 
-        Text(text = "250",
-                modifier = Modifier.gravity(Alignment.BottomEnd)
-                        .padding(0.dp, 0.dp, 24.dp, 24.dp),
-                color = darkGrey,
-                style = MaterialTheme.typography.h2
+        Text(
+            text = "=",
+            modifier = Modifier.gravity(Alignment.BottomStart)
+                .padding(24.dp, 0.dp, 0.dp, 24.dp),
+            color = darkGrey,
+            style = MaterialTheme.typography.h2
+        )
+
+        Text(
+            text = "250",
+            modifier = Modifier.gravity(Alignment.BottomEnd)
+                .padding(0.dp, 0.dp, 24.dp, 24.dp),
+            color = darkGrey,
+            style = MaterialTheme.typography.h2
         )
     }
 
@@ -103,9 +114,9 @@ fun DigitalInputContainer() {
 @Composable
 fun CalculatorButtonsContainer() {
     val calculatorButtonsContainerModifier = Modifier
-            .weight(0.75f)
-            .fillMaxSize()
-            .padding(16.dp, 0.dp, 16.dp, 24.dp)
+        .weight(0.75f)
+        .fillMaxSize()
+        .padding(16.dp, 0.dp, 16.dp, 24.dp)
 
     Row(modifier = calculatorButtonsContainerModifier) {
         CalculatorDigitsContainer()
@@ -116,8 +127,8 @@ fun CalculatorButtonsContainer() {
 @Composable
 fun CalculatorDigitsContainer() {
     val calculatorDigitsContainerModifier = Modifier
-            .weight(0.81f)
-            .padding(0.dp, 0.dp, 16.dp, 0.dp)
+        .weight(0.81f)
+        .padding(0.dp, 0.dp, 16.dp, 0.dp)
 
     Column(modifier = calculatorDigitsContainerModifier) {
         EmptySpace()
@@ -128,23 +139,23 @@ fun CalculatorDigitsContainer() {
 @Composable
 fun EmptySpace() {
     val spaceModifier = Modifier
-            .weight(0.12f)
-            .clip(RoundedCornerShape(48.dp))
+        .weight(0.12f)
+        .clip(RoundedCornerShape(48.dp))
     Divider(modifier = spaceModifier, color = darkerGrey)
 }
 
 private val digitsColumns = listOf(
-        listOf("1", "4", "7", "."),
-        listOf("2", "5", "8", "0"),
-        listOf("3", "6", "9", "00")
+    listOf("1", "4", "7", "."),
+    listOf("2", "5", "8", "0"),
+    listOf("3", "6", "9", "00")
 )
 
 @Composable()
 fun DigitsPanel() {
     val digitsPanelModifier = Modifier
-            .weight(0.88f)
-            .padding(0.dp, 16.dp, 0.dp, 0.dp)
-            .fillMaxSize()
+        .weight(0.88f)
+        .padding(0.dp, 16.dp, 0.dp, 0.dp)
+        .fillMaxSize()
 
     Row(modifier = digitsPanelModifier) {
         digitsColumns.forEach { digitColumn ->
@@ -160,7 +171,7 @@ fun DigitsPanel() {
 @Composable
 fun DigitItem(text: String) {
     Stack(modifier = Modifier.weight(0.33f)) {
-        val imageBackgroundModifier = Modifier
+        /*val imageBackgroundModifier = Modifier
                 .gravity(Alignment.Center)
                 .padding(16.dp, 20.dp, 0.dp, 0.dp)
                 .fillMaxWidth()
@@ -178,7 +189,9 @@ fun DigitItem(text: String) {
         Text(text = text, textAlign = TextAlign.Center,
                 modifier = Modifier.gravity(Alignment.Center),
                 color = lightBrightGrey,
-                style = MaterialTheme.typography.h3)
+                style = MaterialTheme.typography.h3)*/
+
+        AndroidView(resId = R.layout.layout_neumorphic_digit_item)
     }
 }
 
@@ -187,20 +200,20 @@ private val operationsColumn = listOf("÷", "×", "-", "+", "=")
 @Composable
 fun CalculatorFunctionalButtons() {
     val calculatorFunctionalModifier = Modifier
-            .fillMaxHeight()
-            .weight(0.19f)
+        .fillMaxHeight()
+        .weight(0.19f)
 
     Stack(modifier = calculatorFunctionalModifier) {
         val spaceModifier = Modifier
-                .fillMaxSize()
-                .clip(RoundedCornerShape(48.dp))
+            .fillMaxSize()
+            .clip(RoundedCornerShape(48.dp))
 
         Divider(modifier = spaceModifier, color = darkerGrey)
 
         val fabIcon = vectorResource(id = R.drawable.ic_fab)
         val fabModifier = Modifier.gravity(Alignment.BottomCenter)
-                .fillMaxWidth()
-                .aspectRatio(1f)
+            .fillMaxWidth()
+            .aspectRatio(1f)
         Image(fabIcon, modifier = fabModifier)
 
         /*FloatingActionButton(onClick = { },
@@ -226,11 +239,13 @@ fun FunctionalItem(text: String) {
     Stack(modifier = Modifier.weight(0.25f).fillMaxSize()) {
         val textModifier = Modifier.gravity(Alignment.Center)
 
-        Text(text = text,
-                textAlign = TextAlign.Center,
-                modifier = textModifier,
-                color = lightBrightGrey,
-                style = MaterialTheme.typography.h3)
+        Text(
+            text = text,
+            textAlign = TextAlign.Center,
+            modifier = textModifier,
+            color = lightBrightGrey,
+            style = MaterialTheme.typography.h3
+        )
     }
 }
 
