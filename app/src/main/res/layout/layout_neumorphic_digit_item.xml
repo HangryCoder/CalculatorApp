@@ -13,11 +13,11 @@
         android:text="1"
         android:textSize="26sp"
         android:fontFamily="@font/googlesans_regular"
-        android:textColor="@color/dark_blue"
+        android:textColor="@color/light_bright_grey"
         android:gravity="center"
         app:neumorph_shadowColorDark="#1B2F33"
         app:neumorph_shadowColorLight="#334D53"
         app:neumorph_shadowElevation="4dp"
-        app:neumorph_shapeAppearance="@style/CustomShapeAppearance"
+        app:neumorph_shapeAppearance="@style/NeumorphicShapeAppearance"
         app:neumorph_shapeType="flat" />
 </LinearLayout>
