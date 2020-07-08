@@ -6,15 +6,16 @@
     android:orientation="vertical">
 
     <soup.neumorphism.NeumorphButton
+        android:id="@+id/button"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#2B4247"
+        android:fontFamily="@font/googlesans_regular"
+        android:gravity="center"
         android:padding="14dp"
         android:text="1"
-        android:textSize="26sp"
-        android:fontFamily="@font/googlesans_regular"
         android:textColor="@color/light_bright_grey"
-        android:gravity="center"
+        android:textSize="26sp"
         app:neumorph_shadowColorDark="#1B2F33"
         app:neumorph_shadowColorLight="#334D53"
         app:neumorph_shadowElevation="4dp"

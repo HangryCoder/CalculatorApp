@@ -191,7 +191,11 @@ fun DigitItem(text: String) {
                 color = lightBrightGrey,
                 style = MaterialTheme.typography.h3)*/
 
-        AndroidView(resId = R.layout.layout_neumorphic_digit_item)
+        AndroidView(resId = R.layout.layout_neumorphic_digit_item,
+            postInflationCallback = {
+                val neumorphButton = it.findViewById<NeumorphButton>(R.id.button)
+                neumorphButton.text = text
+            })
     }
 }
 
