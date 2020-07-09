@@ -23,7 +23,13 @@
 
     <style name="Theme.NeumorphicCalculator.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="NeumorphicShapeAppearance">
+    <style name="NeumorphicButtonShapeAppearance">
         <item name="neumorph_cornerFamily">oval</item>
     </style>
+
+    <style name="NeumorphicDigitalInputShapeAppearance">
+        <item name="neumorph_cornerFamily">rounded</item>
+        <item name="neumorph_cornerSize">8dp</item>
+    </style>
+
 </resources>

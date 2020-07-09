@@ -1,6 +1,7 @@
 package com.hangrycoder.neumorphiccalculator
 
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.ui.core.*
@@ -73,21 +74,26 @@ fun CalculatorMainContent() {
 @Composable
 fun DigitalInputContainer() {
     Stack(modifier = Modifier.padding(16.dp, 24.dp).weight(0.25f)) {
-        val imageModifier = Modifier
-            .fillMaxSize()
-            .clip(shape = RoundedCornerShape(8.dp))
+        /* val imageModifier = Modifier
+             .fillMaxSize()
+             .clip(shape = RoundedCornerShape(8.dp))
 
-        val image = vectorResource(id = R.drawable.ic_digital_input_container)
-        Image(
-            image,
-            modifier = imageModifier,
-            contentScale = ContentScale.Crop
-        )
+         val image = vectorResource(id = R.drawable.ic_digital_input_container)
+         Image(
+             image,
+             modifier = imageModifier,
+             contentScale = ContentScale.Crop
+         )*/
+
+        AndroidView(resId = R.layout.layout_digital_input_container, postInflationCallback = {
+            it.findViewById<ImageView>(R.id.imageView)
+                .setImageResource(R.drawable.ic_digital_input_container)
+        })
 
         Text(
             text = "100 + 25 + 25 + 100",
             modifier = Modifier.gravity(Alignment.TopEnd)
-                .padding(0.dp, 24.dp, 24.dp, 0.dp),
+                .padding(0.dp, 32.dp, 32.dp, 0.dp),
             color = darkGrey,
             style = MaterialTheme.typography.h5
         )
@@ -95,7 +101,7 @@ fun DigitalInputContainer() {
         Text(
             text = "=",
             modifier = Modifier.gravity(Alignment.BottomStart)
-                .padding(24.dp, 0.dp, 0.dp, 24.dp),
+                .padding(32.dp, 0.dp, 0.dp, 32.dp),
             color = darkGrey,
             style = MaterialTheme.typography.h2
         )
@@ -103,7 +109,7 @@ fun DigitalInputContainer() {
         Text(
             text = "250",
             modifier = Modifier.gravity(Alignment.BottomEnd)
-                .padding(0.dp, 0.dp, 24.dp, 24.dp),
+                .padding(0.dp, 0.dp, 32.dp, 32.dp),
             color = darkGrey,
             style = MaterialTheme.typography.h2
         )
