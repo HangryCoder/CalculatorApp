@@ -1,6 +1,7 @@
 package com.hangrycoder.neumorphiccalculator
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
@@ -190,6 +191,9 @@ fun DigitItem(text: String) {
             postInflationCallback = {
                 val neumorphButton = it.findViewById<NeumorphButton>(R.id.button)
                 neumorphButton.text = text
+                neumorphButton.setOnClickListener {
+                    Log.e("TAG", "DigitItem: " )
+                }
             })
     }
 }
