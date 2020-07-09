@@ -74,17 +74,6 @@ fun CalculatorMainContent() {
 @Composable
 fun DigitalInputContainer() {
     Stack(modifier = Modifier.padding(16.dp, 24.dp).weight(0.25f)) {
-        /* val imageModifier = Modifier
-             .fillMaxSize()
-             .clip(shape = RoundedCornerShape(8.dp))
-
-         val image = vectorResource(id = R.drawable.ic_digital_input_container)
-         Image(
-             image,
-             modifier = imageModifier,
-             contentScale = ContentScale.Crop
-         )*/
-
         AndroidView(resId = R.layout.layout_digital_input_container, postInflationCallback = {
             it.findViewById<ImageView>(R.id.imageView)
                 .setImageResource(R.drawable.ic_digital_input_container)
