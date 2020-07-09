@@ -1,7 +1,6 @@
 package com.hangrycoder.neumorphiccalculator
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
@@ -12,7 +11,6 @@ import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.layout.*
 import androidx.ui.layout.ColumnScope.weight
 import androidx.ui.material.*
-import androidx.ui.res.imageResource
 import androidx.ui.res.vectorResource
 import androidx.ui.text.style.TextAlign
 import androidx.ui.tooling.preview.Preview
@@ -167,33 +165,10 @@ fun DigitsPanel() {
 @Composable
 fun DigitItem(text: String) {
     Stack(modifier = Modifier.weight(0.33f)) {
-        /*val imageBackgroundModifier = Modifier
-                .gravity(Alignment.Center)
-                .padding(16.dp, 20.dp, 0.dp, 0.dp)
-                .fillMaxWidth()
-
-        val imageBackground = imageResource(id = R.drawable.digit_item_background)
-        Image(imageBackground, modifier = imageBackgroundModifier)
-
-        val imageForegroundModifier = Modifier
-                .gravity(Alignment.Center)
-                .fillMaxWidth()
-
-        val imageForeground = imageResource(id = R.drawable.digit_item_foreground)
-        Image(imageForeground, modifier = imageForegroundModifier)
-
-        Text(text = text, textAlign = TextAlign.Center,
-                modifier = Modifier.gravity(Alignment.Center),
-                color = lightBrightGrey,
-                style = MaterialTheme.typography.h3)*/
-
         AndroidView(resId = R.layout.layout_neumorphic_digit_item,
             postInflationCallback = {
                 val neumorphButton = it.findViewById<NeumorphButton>(R.id.button)
                 neumorphButton.text = text
-                neumorphButton.setOnClickListener {
-                    Log.e("TAG", "DigitItem: " )
-                }
             })
     }
 }
