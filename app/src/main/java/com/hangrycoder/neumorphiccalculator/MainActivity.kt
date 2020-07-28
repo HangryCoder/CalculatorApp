@@ -130,12 +130,42 @@ fun CalculatorDigitsContainer() {
     }
 }
 
+private val operationsRow = listOf("AC", "<-", "%")
+
 @Composable
 fun EmptySpace() {
-    val spaceModifier = Modifier
+    val calculatorFunctionalModifier = Modifier
+        .fillMaxWidth()
         .weight(0.12f)
-        .clip(RoundedCornerShape(48.dp))
-    Divider(modifier = spaceModifier, color = darkerGrey)
+
+    Stack(modifier = calculatorFunctionalModifier) {
+        val spaceModifier = Modifier
+            .fillMaxSize()
+            .clip(RoundedCornerShape(48.dp))
+
+        Divider(modifier = spaceModifier, color = darkerGrey)
+
+        Row(modifier = Modifier.fillMaxSize()) {
+            operationsRow.forEach { operationRow ->
+                Row(modifier = Modifier.weight(1f)) {
+                    operationRow.forEach { text ->
+                        Stack(modifier = Modifier.weight(0.33f).fillMaxSize()) {
+                            val textModifier = Modifier.gravity(Alignment.Center)
+
+                            Text(
+                                text = text.toString(),
+                                textAlign = TextAlign.Center,
+                                modifier = textModifier,
+                                color = lightBrightGrey,
+                                style = MaterialTheme.typography.h6
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 private val digitsColumns = listOf(

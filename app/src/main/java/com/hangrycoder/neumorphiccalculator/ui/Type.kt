@@ -8,11 +8,11 @@ import com.hangrycoder.neumorphiccalculator.R
 
 // Set of Material typography styles to start with
 val typography = Typography(
-        body1 = TextStyle(
-                fontFamily = FontFamily.Default,
-                fontWeight = FontWeight.Normal,
-                fontSize = 16.sp
-        )/*,
+    body1 = TextStyle(
+        fontFamily = FontFamily.Default,
+        fontWeight = FontWeight.Normal,
+        fontSize = 16.sp
+    )/*,
         button = TextStyle(
                 fontFamily = FontFamily.Default,
                 fontWeight = FontWeight.W500,
@@ -23,34 +23,50 @@ val typography = Typography(
                 fontWeight = FontWeight.Normal,
                 fontSize = 12.sp
         )*/,
-        h4 = TextStyle(
-                fontFamily = fontFamily(font(
-                        resId = R.font.googlesans_bold
-                )),
-                fontWeight = FontWeight.Normal,
-                fontSize = 24.sp
+    h4 = TextStyle(
+        fontFamily = fontFamily(
+            font(
+                resId = R.font.googlesans_bold
+            )
         ),
+        fontWeight = FontWeight.Normal,
+        fontSize = 24.sp
+    ),
 
-        h5 = TextStyle(
-                fontFamily = fontFamily(font(
-                        resId = R.font.digital_7
-                )),
-                fontWeight = FontWeight.Normal,
-                fontSize = 20.sp
+    h5 = TextStyle(
+        fontFamily = fontFamily(
+            font(
+                resId = R.font.digital_7
+            )
         ),
+        fontWeight = FontWeight.Normal,
+        fontSize = 20.sp
+    ),
 
-        h2 = TextStyle(
-                fontFamily = fontFamily(font(
-                        resId = R.font.digital_7
-                )),
-                fontWeight = FontWeight.Normal,
-                fontSize = 36.sp
+    h2 = TextStyle(
+        fontFamily = fontFamily(
+            font(
+                resId = R.font.digital_7
+            )
         ),
-        h3 = TextStyle(
-                fontFamily = fontFamily(font(
-                        resId = R.font.googlesans_regular
-                )),
-                fontSize = 26.sp
-        )
+        fontWeight = FontWeight.Normal,
+        fontSize = 36.sp
+    ),
+    h3 = TextStyle(
+        fontFamily = fontFamily(
+            font(
+                resId = R.font.googlesans_regular
+            )
+        ),
+        fontSize = 26.sp
+    ),
+    h6 = TextStyle(
+        fontFamily = fontFamily(
+            font(
+                resId = R.font.googlesans_regular
+            )
+        ),
+        fontSize = 21.sp
+    )
 
 )
