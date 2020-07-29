@@ -1,7 +1,6 @@
 package com.hangrycoder.neumorphiccalculator
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
@@ -126,7 +125,7 @@ fun CalculatorDigitsContainer() {
         .padding(0.dp, 0.dp, 16.dp, 0.dp)
 
     Column(modifier = calculatorDigitsContainerModifier) {
-        EmptySpace()
+        FunctionalButtonsVertical()
         DigitsPanel()
     }
 }
@@ -134,7 +133,7 @@ fun CalculatorDigitsContainer() {
 private val operationsRow = listOf("AC", "<-", "%")
 
 @Composable
-fun EmptySpace() {
+fun FunctionalButtonsVertical() {
     val calculatorFunctionalModifier = Modifier
         .fillMaxWidth()
         .weight(0.12f)
@@ -225,12 +224,8 @@ fun CalculatorFunctionalButtons() {
         }*/
 
         Column(modifier = Modifier.fillMaxSize()) {
-            operationsColumn.forEach { operationColumn ->
-                Row(modifier = Modifier.weight(1f)) {
-                    operationColumn.forEach { text ->
-                        FunctionalItem(text.toString())
-                    }
-                }
+            operationsColumn.forEach { text ->
+                FunctionalItem(text)
             }
         }
     }
