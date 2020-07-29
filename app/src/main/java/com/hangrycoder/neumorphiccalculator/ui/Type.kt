@@ -12,17 +12,7 @@ val typography = Typography(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp
-    )/*,
-        button = TextStyle(
-                fontFamily = FontFamily.Default,
-                fontWeight = FontWeight.W500,
-                fontSize = 14.sp
-        ),
-        caption = TextStyle(
-                fontFamily = FontFamily.Default,
-                fontWeight = FontWeight.Normal,
-                fontSize = 12.sp
-        )*/,
+    ),
     h4 = TextStyle(
         fontFamily = fontFamily(
             font(

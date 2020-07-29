@@ -7,6 +7,7 @@ import androidx.compose.Composable
 import androidx.ui.core.*
 import androidx.ui.foundation.Image
 import androidx.ui.foundation.Text
+import androidx.ui.foundation.isSystemInDarkTheme
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.layout.*
 import androidx.ui.layout.ColumnScope.weight
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 @Composable
 fun MyApp(content: @Composable() () -> Unit) {
     NeumorphicCalculatorTheme {
-        Surface(color = darkGrey) {
+        Surface(color = if (isSystemInDarkTheme()) darkGrey else lightBlue) {
             content()
         }
     }
@@ -53,11 +54,11 @@ fun Toolbar() {
         title = {
             Text(
                 text = "Calculator",
-                color = lightGrey,
+                color = if (isSystemInDarkTheme()) lightGrey else darkBlue,
                 modifier = Modifier.padding(0.dp, 16.dp),
                 style = MaterialTheme.typography.h4
             )
-        }, backgroundColor = darkGrey,
+        }, backgroundColor = if (isSystemInDarkTheme()) darkGrey else lightBlue,
         elevation = 0.dp
     )
 }
@@ -139,10 +140,7 @@ fun FunctionalButtonsVertical() {
         .weight(0.12f)
 
     Stack(modifier = calculatorFunctionalModifier) {
-        val spaceModifier = Modifier
-            .fillMaxSize()
-            .clip(RoundedCornerShape(48.dp))
-        Divider(modifier = spaceModifier, color = darkerGrey)
+        OperationsButtonBackground()
 
         Row(modifier = Modifier.fillMaxSize()) {
             operationsRow.forEach { text ->
@@ -170,6 +168,17 @@ fun FunctionalButtonsVertical() {
             }
         }
     }
+}
+
+@Composable()
+fun OperationsButtonBackground() {
+    val spaceModifier = Modifier
+        .fillMaxSize()
+        .clip(RoundedCornerShape(48.dp))
+    Divider(
+        modifier = spaceModifier,
+        color = if (isSystemInDarkTheme()) darkerGrey else lighterBlueGrey
+    )
 }
 
 private val digitsColumns = listOf(
@@ -216,11 +225,7 @@ fun CalculatorFunctionalButtons() {
         .weight(0.19f)
 
     Stack(modifier = calculatorFunctionalModifier) {
-        val spaceModifier = Modifier
-            .fillMaxSize()
-            .clip(RoundedCornerShape(48.dp))
-
-        Divider(modifier = spaceModifier, color = darkerGrey)
+        OperationsButtonBackground()
 
         val fabIcon = vectorResource(id = R.drawable.ic_fab)
         val fabModifier = Modifier.gravity(Alignment.BottomCenter)

@@ -12,3 +12,5 @@ val lightGrey = Color(0xFF5D7276)
 
 val darkerGrey = Color(0xFF24393E)
 val lightBrightGrey = Color(0xFF90B0B7)
+
+val lighterBlueGrey = Color(0xFFD2E9EF)
