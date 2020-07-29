@@ -147,14 +147,25 @@ fun FunctionalButtonsVertical() {
         Row(modifier = Modifier.fillMaxSize()) {
             operationsRow.forEach { text ->
                 Stack(modifier = Modifier.weight(0.33f).fillMaxSize()) {
-                    val textModifier = Modifier.gravity(Alignment.Center)
-                    Text(
-                        text = text,
-                        textAlign = TextAlign.Center,
-                        modifier = textModifier,
-                        color = lightBrightGrey,
-                        style = MaterialTheme.typography.h6
-                    )
+
+                    if (text == operationsRow[1]) {
+
+                        val clearIcon = vectorResource(id = R.drawable.ic_clear)
+                        val clearIconModifier = Modifier.gravity(Alignment.Center)
+                            .height(25.dp)
+                            .aspectRatio(1f)
+                        Image(clearIcon, modifier = clearIconModifier)
+
+                    } else {
+                        val textModifier = Modifier.gravity(Alignment.Center)
+                        Text(
+                            text = text,
+                            textAlign = TextAlign.Center,
+                            modifier = textModifier,
+                            color = lightBrightGrey,
+                            style = MaterialTheme.typography.h6
+                        )
+                    }
                 }
             }
         }
