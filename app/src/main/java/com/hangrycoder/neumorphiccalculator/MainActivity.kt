@@ -1,6 +1,7 @@
 package com.hangrycoder.neumorphiccalculator
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
@@ -142,30 +143,23 @@ fun EmptySpace() {
         val spaceModifier = Modifier
             .fillMaxSize()
             .clip(RoundedCornerShape(48.dp))
-
         Divider(modifier = spaceModifier, color = darkerGrey)
 
         Row(modifier = Modifier.fillMaxSize()) {
-            operationsRow.forEach { operationRow ->
-                Row(modifier = Modifier.weight(1f)) {
-                    operationRow.forEach { text ->
-                        Stack(modifier = Modifier.weight(0.33f).fillMaxSize()) {
-                            val textModifier = Modifier.gravity(Alignment.Center)
-
-                            Text(
-                                text = text.toString(),
-                                textAlign = TextAlign.Center,
-                                modifier = textModifier,
-                                color = lightBrightGrey,
-                                style = MaterialTheme.typography.h6
-                            )
-                        }
-                    }
+            operationsRow.forEach { text ->
+                Stack(modifier = Modifier.weight(0.33f).fillMaxSize()) {
+                    val textModifier = Modifier.gravity(Alignment.Center)
+                    Text(
+                        text = text,
+                        textAlign = TextAlign.Center,
+                        modifier = textModifier,
+                        color = lightBrightGrey,
+                        style = MaterialTheme.typography.h6
+                    )
                 }
             }
         }
     }
-
 }
 
 private val digitsColumns = listOf(
