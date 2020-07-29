@@ -46,4 +46,13 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="NeumorphicCardViewStyle" parent="Widget.Neumorph.CardView">
+        <item name="neumorph_shadowColorDark">@color/darkest_grey</item>
+        <item name="neumorph_shadowColorLight">@color/medium_grey</item>
+        <item name="neumorph_shadowElevation">6dp</item>
+        <item name="backgroundColor">@color/dark_grey</item>
+        <item name="neumorph_shapeAppearance">@style/NeumorphicDigitalInputShapeAppearance</item>
+        <item name="neumorph_shapeType">flat</item>
+    </style>
+
 </resources>
