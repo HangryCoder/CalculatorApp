@@ -16,4 +16,6 @@
     <color name="medium_grey">#334D53</color>
     <color name="darkest_grey">#1B2F33</color>
     <color name="light_bright_grey">#90B0B7</color>
+
+    <color name="lighter_blue">#C9E4EB</color>
 </resources>

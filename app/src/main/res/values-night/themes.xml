@@ -13,4 +13,37 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.NeumorphicCalculator.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.NeumorphicCalculator.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.NeumorphicCalculator.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="NeumorphicButtonShapeAppearance">
+        <item name="neumorph_cornerFamily">oval</item>
+    </style>
+
+    <style name="NeumorphicDigitalInputShapeAppearance">
+        <item name="neumorph_cornerFamily">rounded</item>
+        <item name="neumorph_cornerSize">8dp</item>
+    </style>
+
+    <style name="NeumorphicButtonStyle" parent="Widget.Neumorph.Button">
+        <item name="neumorph_shadowColorDark">@color/darkest_grey</item>
+        <item name="neumorph_shadowColorLight">@color/medium_grey</item>
+        <item name="backgroundColor">@color/dark_grey</item>
+        <item name="neumorph_shadowElevation">4dp</item>
+        <item name="neumorph_shapeAppearance">@style/NeumorphicButtonShapeAppearance</item>
+        <item name="neumorph_shapeType">flat</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textColor">@color/light_bright_grey</item>
+        <item name="fontFamily">@font/googlesans_regular</item>
+        <item name="android:padding">14dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>

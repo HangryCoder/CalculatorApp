@@ -7,29 +7,23 @@ import androidx.ui.material.darkColorPalette
 import androidx.ui.material.lightColorPalette
 
 private val DarkColorPalette = darkColorPalette(
-        primary = darkGrey,
-        primaryVariant = darkGrey,
-        secondary = teal200
+    primary = darkGrey,
+    primaryVariant = darkGrey,
+    secondary = teal200
 )
 
 private val LightColorPalette = lightColorPalette(
-        primary = lightBlue,
-        primaryVariant = lightBlue,
-        secondary = teal200,
-        background = lightBlue
-
-        /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
+    primary = lightBlue,
+    primaryVariant = lightBlue,
+    secondary = teal200,
+    background = lightBlue
 )
 
 @Composable
-fun NeumorphicCalculatorTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable() () -> Unit) {
+fun NeumorphicCalculatorTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    content: @Composable() () -> Unit
+) {
     val colors = if (darkTheme) {
         DarkColorPalette
     } else {
@@ -37,9 +31,9 @@ fun NeumorphicCalculatorTheme(darkTheme: Boolean = isSystemInDarkTheme(), conten
     }
 
     MaterialTheme(
-            colors = colors,
-            typography = typography,
-            shapes = shapes,
-            content = content
+        colors = colors,
+        typography = typography,
+        shapes = shapes,
+        content = content
     )
 }

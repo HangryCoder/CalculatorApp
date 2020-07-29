@@ -32,4 +32,18 @@
         <item name="neumorph_cornerSize">8dp</item>
     </style>
 
+    <style name="NeumorphicButtonStyle" parent="Widget.Neumorph.Button">
+        <item name="neumorph_shadowColorDark">@color/lighter_blue</item>
+        <item name="neumorph_shadowColorLight">@color/white</item>
+        <item name="backgroundColor">@color/light_blue</item>
+        <item name="neumorph_shadowElevation">4dp</item>
+        <item name="neumorph_shapeAppearance">@style/NeumorphicButtonShapeAppearance</item>
+        <item name="neumorph_shapeType">flat</item>
+        <item name="android:textColor">@color/light_bright_grey</item>
+        <item name="android:textSize">21sp</item>
+        <item name="fontFamily">@font/googlesans_regular</item>
+        <item name="android:padding">14dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>
