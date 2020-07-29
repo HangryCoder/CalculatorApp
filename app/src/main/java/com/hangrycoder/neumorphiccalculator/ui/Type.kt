@@ -67,6 +67,13 @@ val typography = Typography(
             )
         ),
         fontSize = 21.sp
+    ),
+    caption = TextStyle(
+        fontFamily = fontFamily(
+            font(
+                resId = R.font.googlesans_regular
+            )
+        ),
+        fontSize = 21.sp
     )
-
 )
