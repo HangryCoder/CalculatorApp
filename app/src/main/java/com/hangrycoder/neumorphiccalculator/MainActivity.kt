@@ -111,7 +111,7 @@ fun CalculatorButtonsContainer() {
     val calculatorButtonsContainerModifier = Modifier
         .weight(0.75f)
         .fillMaxSize()
-        .padding(16.dp, 0.dp, 16.dp, 24.dp)
+        //.padding(16.dp, 0.dp, 16.dp, 24.dp)
 
     Row(modifier = calculatorButtonsContainerModifier) {
         CalculatorDigitsContainer()
@@ -184,7 +184,7 @@ fun OperationsButtonBackground() {
 private val digitsColumns = listOf(
     listOf("1", "4", "7", "."),
     listOf("2", "5", "8", "0"),
-    listOf("3", "6", "9", "00")
+    listOf("3", "6", "9", "( )")
 )
 
 @Composable()
