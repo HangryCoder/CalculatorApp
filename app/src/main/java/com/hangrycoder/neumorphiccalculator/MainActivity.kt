@@ -115,18 +115,18 @@ fun CalculatorButtonsContainer() {
 
     Row(modifier = calculatorButtonsContainerModifier) {
         CalculatorDigitsContainer()
-        CalculatorFunctionalButtons()
+       // CalculatorFunctionalButtons()
     }
 }
 
 @Composable
 fun CalculatorDigitsContainer() {
     val calculatorDigitsContainerModifier = Modifier
-        .weight(0.81f)
+       // .weight(0.81f)
         .padding(0.dp, 0.dp, 16.dp, 0.dp)
 
     Column(modifier = calculatorDigitsContainerModifier) {
-        FunctionalButtonsVertical()
+      //  FunctionalButtonsVertical()
         DigitsPanel()
     }
 }
@@ -190,8 +190,8 @@ private val digitsColumns = listOf(
 @Composable()
 fun DigitsPanel() {
     val digitsPanelModifier = Modifier
-        .weight(0.88f)
-        .padding(0.dp, 16.dp, 0.dp, 0.dp)
+       // .weight(0.88f)
+        //.padding(0.dp, 16.dp, 0.dp, 0.dp)
         .fillMaxSize()
 
     Row(modifier = digitsPanelModifier) {
@@ -233,11 +233,6 @@ fun CalculatorFunctionalButtons() {
             .aspectRatio(1f)
         Image(fabIcon, modifier = fabModifier)
 
-        /*FloatingActionButton(onClick = { },
-                modifier = fabModifier) {
-            val fabIcon = vectorResource(id = R.drawable.ic_fab)
-            Image(fabIcon, modifier = Modifier.fillMaxWidth())
-        }*/
 
         Column(modifier = Modifier.fillMaxSize()) {
             operationsColumn.forEach { text ->
