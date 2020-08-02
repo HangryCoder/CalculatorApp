@@ -10,7 +10,7 @@ object Utils {
     listOf("÷", "×", "-", "+", "=")
 )*/
 
-    fun getCalculatorButtons() {
+    fun getCalculatorButtons(): List<Button> {
 
         val calculatorButtons = ArrayList<Button>()
 
@@ -61,5 +61,6 @@ object Utils {
         button = Button(id = 20, text = "=", type = ButtonType.OPERATION)
         calculatorButtons.add(button)
 
+        return calculatorButtons
     }
 }

@@ -202,11 +202,19 @@ fun DigitsPanel() {
         .fillMaxSize()
 
     Row(modifier = digitsPanelModifier) {
-        digitsColumns.forEach { digitColumn ->
-            Column(modifier = Modifier.weight(1f)) {
-                digitColumn.forEach { text ->
-                    DigitItem(text = text)
-                }
+        /* digitsColumns.forEach { digitColumn ->
+             Column(modifier = Modifier.weight(1f)) {
+                 digitColumn.forEach { text ->
+                     DigitItem(text = text)
+                 }
+             }
+         }*/
+
+        Utils.getCalculatorButtons().forEach { button ->
+            if (button.type == ButtonType.DIGITS) {
+                DigitItem(text = button.text)
+            } else {
+
             }
         }
     }
