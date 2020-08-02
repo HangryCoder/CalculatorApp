@@ -111,22 +111,22 @@ fun CalculatorButtonsContainer() {
     val calculatorButtonsContainerModifier = Modifier
         .weight(0.75f)
         .fillMaxSize()
-        //.padding(16.dp, 0.dp, 16.dp, 24.dp)
+    //.padding(16.dp, 0.dp, 16.dp, 24.dp)
 
     Row(modifier = calculatorButtonsContainerModifier) {
         CalculatorDigitsContainer()
-       // CalculatorFunctionalButtons()
+        // CalculatorFunctionalButtons()
     }
 }
 
 @Composable
 fun CalculatorDigitsContainer() {
     val calculatorDigitsContainerModifier = Modifier
-       // .weight(0.81f)
+        // .weight(0.81f)
         .padding(0.dp, 0.dp, 16.dp, 0.dp)
 
     Column(modifier = calculatorDigitsContainerModifier) {
-      //  FunctionalButtonsVertical()
+        //  FunctionalButtonsVertical()
         DigitsPanel()
     }
 }
@@ -181,16 +181,23 @@ fun OperationsButtonBackground() {
     )
 }
 
-private val digitsColumns = listOf(
+/*private val digitsColumns = listOf(
     listOf("1", "4", "7", "."),
     listOf("2", "5", "8", "0"),
     listOf("3", "6", "9", "( )")
+)*/
+
+private val digitsColumns = listOf(
+    listOf("AC", "1", "4", "7", "."),
+    listOf("<-", "2", "5", "8", "0"),
+    listOf("%", "3", "6", "9", "( )"),
+    listOf("÷", "×", "-", "+", "=")
 )
 
 @Composable()
 fun DigitsPanel() {
     val digitsPanelModifier = Modifier
-       // .weight(0.88f)
+        // .weight(0.88f)
         //.padding(0.dp, 16.dp, 0.dp, 0.dp)
         .fillMaxSize()
 
