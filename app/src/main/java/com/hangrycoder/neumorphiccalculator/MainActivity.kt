@@ -174,7 +174,7 @@ fun FunctionalButtonsVertical() {
 fun OperationsButtonBackground() {
     val spaceModifier = Modifier
         .fillMaxSize()
-        .clip(RoundedCornerShape(48.dp))
+        //.clip(RoundedCornerShape(48.dp))
     Divider(
         modifier = spaceModifier,
         color = if (isSystemInDarkTheme()) darkerGrey else lighterBlueGrey
@@ -201,24 +201,31 @@ fun DigitsPanel() {
         //.padding(0.dp, 16.dp, 0.dp, 0.dp)
         .fillMaxSize()
 
-    Row(modifier = digitsPanelModifier) {
-        /* digitsColumns.forEach { digitColumn ->
+    /* Row(modifier = digitsPanelModifier) {
+         digitsColumns.forEach { digitColumn ->
              Column(modifier = Modifier.weight(1f)) {
                  digitColumn.forEach { text ->
                      DigitItem(text = text)
                  }
              }
-         }*/
+         }
+     }*/
 
-        Utils.getCalculatorButtons().forEach { button ->
-            if (button.type == ButtonType.DIGITS) {
-                DigitItem(text = button.text)
-            } else {
-
+    Row(modifier = digitsPanelModifier) {
+        Utils.getCalculatorButtons().forEach { buttonRow ->
+            Column(modifier = Modifier.weight(1f)) {
+                buttonRow.forEach { button ->
+                    if (button.type == ButtonType.DIGITS) {
+                        DigitItem(text = button.text)
+                    } else {
+                        FunctionalItem(text = button.text)
+                    }
+                }
             }
         }
     }
 }
+
 
 @Composable
 fun DigitItem(text: String) {
@@ -259,8 +266,30 @@ fun CalculatorFunctionalButtons() {
 
 @Composable
 fun FunctionalItem(text: String) {
-    Stack(modifier = Modifier.weight(0.25f).fillMaxSize()) {
+    /* Stack(modifier = Modifier.weight(0.25f).fillMaxSize()) {
+         val textModifier = Modifier.gravity(Alignment.Center)
+
+         Text(
+             text = text,
+             textAlign = TextAlign.Center,
+             modifier = textModifier,
+             color = lightBrightGrey,
+             style = MaterialTheme.typography.h3
+         )
+     }*/
+
+    Stack(modifier = Modifier.weight(0.33f).fillMaxSize()) {
         val textModifier = Modifier.gravity(Alignment.Center)
+
+        OperationsButtonBackground()
+
+        if (text == "=") {
+            val fabIcon = vectorResource(id = R.drawable.ic_fab)
+            val fabModifier = Modifier.gravity(Alignment.Center)
+                .fillMaxSize()
+                .aspectRatio(1f)
+            Image(fabIcon, modifier = fabModifier)
+        }
 
         Text(
             text = text,
