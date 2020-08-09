@@ -172,8 +172,7 @@ fun FunctionalButtonsVertical() {
 
 @Composable()
 fun OperationsButtonBackground(index: Int) {
-    var spaceModifier = Modifier
-        .fillMaxSize()
+    var spaceModifier: Modifier
 
     if (index == 1 || index == 6 || index == 11) {
         spaceModifier = Modifier
@@ -315,7 +314,7 @@ fun FunctionalItem(button: Button) {
          )
      }*/
 
-    var stackModifier = Modifier.weight(0.33f).fillMaxSize()
+    var stackModifier: Modifier
     val index = button.id
 
     if (index == 1 || index == 6 || index == 11) {
@@ -353,9 +352,9 @@ fun FunctionalItem(button: Button) {
     Stack(modifier = stackModifier) {
         val textModifier = Modifier.gravity(Alignment.Center)
 
-        OperationsButtonBackground(button.id)
+        OperationsButtonBackground(index)
 
-        if (button.text == "=") {
+        if (index == 20) {
             val fabIcon = vectorResource(id = R.drawable.ic_fab)
             val fabModifier = Modifier.gravity(Alignment.Center)
                 .fillMaxSize()
@@ -363,20 +362,28 @@ fun FunctionalItem(button: Button) {
             Image(fabIcon, modifier = fabModifier)
         }
 
-        val style =
-            if (button.id == 1 || button.id == 6 || button.id == 11) {
-                MaterialTheme.typography.body1
-            } else {
-                MaterialTheme.typography.h3
-            }
+        if (index == 6) {
+            val clearIcon = vectorResource(id = R.drawable.ic_clear)
+            val clearIconModifier = Modifier.gravity(Alignment.Center)
+                .height(25.dp)
+                .aspectRatio(1f)
+            Image(clearIcon, modifier = clearIconModifier)
+        } else {
+            val style =
+                if (index == 1 || index == 6 || index == 11) {
+                    MaterialTheme.typography.body1
+                } else {
+                    MaterialTheme.typography.h3
+                }
 
-        Text(
-            text = button.text,
-            textAlign = TextAlign.Center,
-            modifier = textModifier,
-            color = lightBrightGrey,
-            style = style
-        )
+            Text(
+                text = button.text,
+                textAlign = TextAlign.Center,
+                modifier = textModifier,
+                color = lightBrightGrey,
+                style = style
+            )
+        }
     }
 }
 
