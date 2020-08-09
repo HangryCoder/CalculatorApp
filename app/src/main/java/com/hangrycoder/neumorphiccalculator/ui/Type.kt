@@ -11,7 +11,7 @@ val typography = Typography(
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
+        fontSize = 21.sp
     ),
     h4 = TextStyle(
         fontFamily = fontFamily(
@@ -64,6 +64,6 @@ val typography = Typography(
                 resId = R.font.googlesans_regular
             )
         ),
-        fontSize = 21.sp
+        fontSize = 18.sp
     )
 )

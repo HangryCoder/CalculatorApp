@@ -205,7 +205,7 @@ fun OperationsButtonBackground(index: Int) {
                     //.padding(16.dp, 16.dp, 0.dp, 16.dp)
                     .fillMaxSize()
         } else if (index == 20) {
-            Modifier
+            spaceModifier = Modifier
                 .clip(RoundedCornerShape(0.dp, 0.dp, 100.dp, 100.dp))
                 //.padding(16.dp, 16.dp, 0.dp, 16.dp)
                 .fillMaxSize()
@@ -315,7 +315,42 @@ fun FunctionalItem(button: Button) {
          )
      }*/
 
-    Stack(modifier = Modifier.weight(0.33f).fillMaxSize()) {
+    var stackModifier = Modifier.weight(0.33f).fillMaxSize()
+    val index = button.id
+
+    if (index == 1 || index == 6 || index == 11) {
+        stackModifier = Modifier
+            .padding(0.dp, 16.dp)
+            .weight(0.33f).fillMaxSize()
+        if (index == 1) {
+            stackModifier =
+                Modifier
+                    .padding(16.dp, 16.dp, 0.dp, 16.dp)
+                    .weight(0.33f).fillMaxSize()
+        } else if (index == 11) {
+            stackModifier =
+                Modifier
+                    .padding(0.dp, 16.dp, 8.dp, 16.dp)
+                    .weight(0.33f).fillMaxSize()
+        }
+    } else {
+        stackModifier = Modifier
+            .padding(8.dp, 0.dp)
+            .weight(0.33f).fillMaxSize()
+        if (index == 16) {
+            stackModifier =
+                Modifier
+                    .padding(8.dp, 16.dp, 8.dp, 0.dp)
+                    .weight(0.33f).fillMaxSize()
+        } else if (index == 20) {
+            Modifier
+                .padding(8.dp, 0.dp, 8.dp, 16.dp)
+                .weight(0.33f).fillMaxSize()
+        }
+    }
+
+
+    Stack(modifier = stackModifier) {
         val textModifier = Modifier.gravity(Alignment.Center)
 
         OperationsButtonBackground(button.id)
@@ -328,12 +363,19 @@ fun FunctionalItem(button: Button) {
             Image(fabIcon, modifier = fabModifier)
         }
 
+        val style =
+            if (button.id == 1 || button.id == 6 || button.id == 11) {
+                MaterialTheme.typography.body1
+            } else {
+                MaterialTheme.typography.h3
+            }
+
         Text(
             text = button.text,
             textAlign = TextAlign.Center,
             modifier = textModifier,
             color = lightBrightGrey,
-            style = MaterialTheme.typography.h3
+            style = style
         )
     }
 }
