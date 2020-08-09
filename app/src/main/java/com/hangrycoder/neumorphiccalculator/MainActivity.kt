@@ -343,8 +343,8 @@ fun FunctionalItem(button: Button) {
                     .padding(8.dp, 16.dp, 8.dp, 0.dp)
                     .weight(0.33f).fillMaxSize()
         } else if (index == 20) {
-            Modifier
-                .padding(8.dp, 0.dp, 8.dp, 16.dp)
+            stackModifier = Modifier
+                .padding(8.dp, 0.dp, 8.dp, 24.dp)
                 .weight(0.33f).fillMaxSize()
         }
     }
