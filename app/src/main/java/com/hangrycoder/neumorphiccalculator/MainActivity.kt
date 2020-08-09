@@ -140,7 +140,7 @@ fun FunctionalButtonsVertical() {
         .weight(0.12f)
 
     Stack(modifier = calculatorFunctionalModifier) {
-        OperationsButtonBackground()
+        //OperationsButtonBackground()
 
         Row(modifier = Modifier.fillMaxSize()) {
             operationsRow.forEach { text ->
@@ -171,10 +171,47 @@ fun FunctionalButtonsVertical() {
 }
 
 @Composable()
-fun OperationsButtonBackground() {
-    val spaceModifier = Modifier
+fun OperationsButtonBackground(index: Int) {
+    var spaceModifier = Modifier
         .fillMaxSize()
-        //.clip(RoundedCornerShape(48.dp))
+
+    if (index == 1 || index == 6 || index == 11) {
+        spaceModifier = Modifier
+            //.padding(0.dp, 16.dp)
+            .fillMaxSize()
+        if (index == 1) {
+            spaceModifier =
+                Modifier
+                    .clip(RoundedCornerShape(100.dp, 0.dp, 0.dp, 100.dp))
+                    //.padding(16.dp, 16.dp, 0.dp, 16.dp)
+                    .fillMaxSize()
+        } else if (index == 11) {
+            spaceModifier =
+                Modifier
+                    .clip(RoundedCornerShape(0.dp, 100.dp, 100.dp, 0.dp))
+                    //.padding(16.dp, 16.dp, 0.dp, 16.dp)
+                    .fillMaxSize()
+
+        }
+    } else {
+        spaceModifier = Modifier
+            //.padding(0.dp, 16.dp)
+            .fillMaxSize()
+
+        if (index == 16) {
+            spaceModifier =
+                Modifier
+                    .clip(RoundedCornerShape(100.dp, 100.dp, 0.dp, 0.dp))
+                    //.padding(16.dp, 16.dp, 0.dp, 16.dp)
+                    .fillMaxSize()
+        } else if (index == 20) {
+            Modifier
+                .clip(RoundedCornerShape(0.dp, 0.dp, 100.dp, 100.dp))
+                //.padding(16.dp, 16.dp, 0.dp, 16.dp)
+                .fillMaxSize()
+        }
+    }
+
     Divider(
         modifier = spaceModifier,
         color = if (isSystemInDarkTheme()) darkerGrey else lighterBlueGrey
@@ -218,7 +255,7 @@ fun DigitsPanel() {
                     if (button.type == ButtonType.DIGITS) {
                         DigitItem(text = button.text)
                     } else {
-                        FunctionalItem(text = button.text)
+                        FunctionalItem(button)
                     }
                 }
             }
@@ -247,7 +284,7 @@ fun CalculatorFunctionalButtons() {
         .weight(0.19f)
 
     Stack(modifier = calculatorFunctionalModifier) {
-        OperationsButtonBackground()
+        //OperationsButtonBackground()
 
         val fabIcon = vectorResource(id = R.drawable.ic_fab)
         val fabModifier = Modifier.gravity(Alignment.BottomCenter)
@@ -258,14 +295,14 @@ fun CalculatorFunctionalButtons() {
 
         Column(modifier = Modifier.fillMaxSize()) {
             operationsColumn.forEach { text ->
-                FunctionalItem(text)
+                //FunctionalItem(text)
             }
         }
     }
 }
 
 @Composable
-fun FunctionalItem(text: String) {
+fun FunctionalItem(button: Button) {
     /* Stack(modifier = Modifier.weight(0.25f).fillMaxSize()) {
          val textModifier = Modifier.gravity(Alignment.Center)
 
@@ -281,9 +318,9 @@ fun FunctionalItem(text: String) {
     Stack(modifier = Modifier.weight(0.33f).fillMaxSize()) {
         val textModifier = Modifier.gravity(Alignment.Center)
 
-        OperationsButtonBackground()
+        OperationsButtonBackground(button.id)
 
-        if (text == "=") {
+        if (button.text == "=") {
             val fabIcon = vectorResource(id = R.drawable.ic_fab)
             val fabModifier = Modifier.gravity(Alignment.Center)
                 .fillMaxSize()
@@ -292,7 +329,7 @@ fun FunctionalItem(text: String) {
         }
 
         Text(
-            text = text,
+            text = button.text,
             textAlign = TextAlign.Center,
             modifier = textModifier,
             color = lightBrightGrey,
