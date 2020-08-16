@@ -335,16 +335,20 @@ fun FunctionalItem(button: Button) {
     } else {
         stackModifier = Modifier
             .padding(8.dp, 0.dp)
+            .preferredWidth(72.dp)
             .weight(0.33f).fillMaxSize()
         if (index == 16) {
             stackModifier =
                 Modifier
                     .padding(8.dp, 16.dp, 8.dp, 0.dp)
+                    .preferredWidth(72.dp)
                     .weight(0.33f).fillMaxSize()
         } else if (index == 20) {
             stackModifier = Modifier
-                .padding(8.dp, 0.dp, 8.dp, 24.dp)
-                .weight(0.33f).fillMaxSize()
+                .padding(8.dp, 0.dp, 8.dp, 30.dp)
+                .preferredHeight(72.dp)
+                .preferredWidth(72.dp)
+                //.weight(0.33f).fillMaxSize()
         }
     }
 
