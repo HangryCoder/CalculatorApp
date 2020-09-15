@@ -121,11 +121,7 @@ fun CalculatorButtonsContainer() {
 
 @Composable
 fun CalculatorDigitsContainer() {
-    val calculatorDigitsContainerModifier = Modifier
-        // .weight(0.81f)
-        .padding(0.dp, 0.dp, 16.dp, 0.dp)
-
-    Column(modifier = calculatorDigitsContainerModifier) {
+    Column {
         //  FunctionalButtonsVertical()
         DigitsPanel()
     }
