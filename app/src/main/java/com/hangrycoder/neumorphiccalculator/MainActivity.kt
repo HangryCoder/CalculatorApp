@@ -144,18 +144,17 @@ fun OperationsButtonBackground(gravityModifier: Modifier, index: Int) {
             .preferredHeight(72.dp)
     } else {
         spaceModifier = Modifier
+            .plus(gravityModifier)
+            .plus(
+                when (index) {
+                    16 -> Modifier
+                        .clip(RoundedCornerShape(100.dp, 100.dp, 0.dp, 0.dp))
+                    20 -> Modifier
+                        .clip(RoundedCornerShape(0.dp, 0.dp, 100.dp, 100.dp))
+                    else -> Modifier
+                }
+            )
             .fillMaxSize()
-
-        if (index == 16) {
-            spaceModifier =
-                Modifier
-                    .clip(RoundedCornerShape(100.dp, 100.dp, 0.dp, 0.dp))
-                    .fillMaxSize()
-        } else if (index == 20) {
-            spaceModifier = Modifier
-                .clip(RoundedCornerShape(0.dp, 0.dp, 100.dp, 100.dp))
-                .fillMaxSize()
-        }
     }
 
     Divider(
