@@ -125,28 +125,28 @@ fun CalculatorDigitsContainer() {
 }
 
 @Composable()
-fun OperationsButtonBackground(index: Int) {
+fun OperationsButtonBackground(gravityModifier: Modifier, index: Int) {
     var spaceModifier: Modifier
 
     if (index == 1 || index == 6 || index == 11) {
         spaceModifier = Modifier
-            .fillMaxSize()
-//            .fillMaxWidth()
-//            .preferredHeight(72.dp)
+            .plus(gravityModifier)
+            .fillMaxWidth()
+            .preferredHeight(72.dp)
         if (index == 1) {
             spaceModifier =
                 Modifier
                     .clip(RoundedCornerShape(100.dp, 0.dp, 0.dp, 100.dp))
-                    .fillMaxSize()
-//            .fillMaxWidth()
-//            .preferredHeight(72.dp)
+                    .plus(gravityModifier)
+                    .fillMaxWidth()
+                    .preferredHeight(72.dp)
         } else if (index == 11) {
             spaceModifier =
                 Modifier
                     .clip(RoundedCornerShape(0.dp, 100.dp, 100.dp, 0.dp))
-                    .fillMaxSize()
-//            .fillMaxWidth()
-//            .preferredHeight(72.dp)
+                    .plus(gravityModifier)
+                    .fillMaxWidth()
+                    .preferredHeight(72.dp)
         }
     } else {
         spaceModifier = Modifier
@@ -246,7 +246,8 @@ fun FunctionalItem(button: Button) {
     Stack(modifier = stackModifier) {
         val textModifier = Modifier.gravity(Alignment.Center)
 
-        OperationsButtonBackground(index)
+        val operationsButtonModifier = Modifier.gravity(Alignment.Center)
+        OperationsButtonBackground(operationsButtonModifier, index)
 
         if (index == 20) {
             val fabIcon = vectorResource(id = R.drawable.ic_fab)
