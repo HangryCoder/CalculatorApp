@@ -2,7 +2,7 @@
 buildscript {
     ext {
         compose_version = '0.1.0-dev13'
-        neumorphism_version = '0.1.11'
+        neumorphism_version = '0.2.0'
         constraint_layout_version = '2.0.0-beta8'
     }
     ext.kotlin_version = "1.3.61"
