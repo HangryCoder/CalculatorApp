@@ -126,7 +126,7 @@ fun CalculatorDigitsContainer() {
 
 @Composable()
 fun OperationsButtonBackground(gravityModifier: Modifier, index: Int) {
-    var spaceModifier: Modifier
+    val spaceModifier: Modifier
 
     if (index == 1 || index == 6 || index == 11) {
         spaceModifier = Modifier
@@ -183,7 +183,6 @@ fun DigitsPanel() {
     }
 }
 
-
 @Composable
 fun DigitItem(text: String) {
     Stack(modifier = Modifier.weight(0.33f)) {
@@ -197,42 +196,38 @@ fun DigitItem(text: String) {
 
 @Composable
 fun FunctionalItem(button: Button) {
-    var stackModifier: Modifier
+    val stackModifier: Modifier
     val index = button.id
 
     if (index == 1 || index == 6 || index == 11) {
         stackModifier = Modifier
-            .padding(0.dp, 16.dp)
             .weight(0.33f).fillMaxSize()
-        if (index == 1) {
-            stackModifier =
-                Modifier
-                    .padding(16.dp, 16.dp, 0.dp, 16.dp)
-                    .weight(0.33f).fillMaxSize()
-        } else if (index == 11) {
-            stackModifier =
-                Modifier
-                    .padding(0.dp, 16.dp, 8.dp, 16.dp)
-                    .weight(0.33f).fillMaxSize()
-        }
+            .plus(
+                when (index) {
+                    1 -> Modifier
+                        .padding(16.dp, 16.dp, 0.dp, 16.dp)
+                    11 -> Modifier
+                        .padding(0.dp, 16.dp, 8.dp, 16.dp)
+                    else -> Modifier.padding(0.dp, 16.dp)
+                }
+            )
     } else {
         stackModifier = Modifier
-            .padding(8.dp, 0.dp, 0.dp, 0.dp)
+            .plus(
+                when (index) {
+                    16 -> Modifier
+                        .padding(8.dp, 16.dp, 0.dp, 0.dp)
+                        .weight(0.33f)
+                        .fillMaxHeight()
+                    20 -> Modifier
+                        .padding(8.dp, 0.dp, 0.dp, 30.dp)
+                        .preferredHeight(72.dp)
+                    else -> Modifier.padding(8.dp, 0.dp, 0.dp, 0.dp)
+                        .weight(0.33f)
+                        .fillMaxHeight()
+                }
+            )
             .preferredWidth(72.dp)
-            .weight(0.33f).fillMaxSize()
-        if (index == 16) {
-            stackModifier =
-                Modifier
-                    .padding(8.dp, 16.dp, 0.dp, 0.dp)
-                    .preferredWidth(72.dp)
-                    .weight(0.33f).fillMaxSize()
-        } else if (index == 20) {
-            stackModifier = Modifier
-                .padding(8.dp, 0.dp, 0.dp, 30.dp)
-                .preferredHeight(72.dp)
-                .preferredWidth(72.dp)
-            //.weight(0.33f).fillMaxSize()
-        }
     }
 
 
