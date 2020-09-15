@@ -176,21 +176,23 @@ fun OperationsButtonBackground(index: Int) {
 
     if (index == 1 || index == 6 || index == 11) {
         spaceModifier = Modifier
-            //.padding(0.dp, 16.dp)
             .fillMaxSize()
+//            .fillMaxWidth()
+//            .preferredHeight(72.dp)
         if (index == 1) {
             spaceModifier =
                 Modifier
                     .clip(RoundedCornerShape(100.dp, 0.dp, 0.dp, 100.dp))
-                    //.padding(16.dp, 16.dp, 0.dp, 16.dp)
                     .fillMaxSize()
+//            .fillMaxWidth()
+//            .preferredHeight(72.dp)
         } else if (index == 11) {
             spaceModifier =
                 Modifier
                     .clip(RoundedCornerShape(0.dp, 100.dp, 100.dp, 0.dp))
-                    //.padding(16.dp, 16.dp, 0.dp, 16.dp)
                     .fillMaxSize()
-
+//            .fillMaxWidth()
+//            .preferredHeight(72.dp)
         }
     } else {
         spaceModifier = Modifier
@@ -334,21 +336,21 @@ fun FunctionalItem(button: Button) {
         }
     } else {
         stackModifier = Modifier
-            .padding(8.dp, 0.dp)
+            .padding(8.dp, 0.dp, 0.dp, 0.dp)
             .preferredWidth(72.dp)
             .weight(0.33f).fillMaxSize()
         if (index == 16) {
             stackModifier =
                 Modifier
-                    .padding(8.dp, 16.dp, 8.dp, 0.dp)
+                    .padding(8.dp, 16.dp, 0.dp, 0.dp)
                     .preferredWidth(72.dp)
                     .weight(0.33f).fillMaxSize()
         } else if (index == 20) {
             stackModifier = Modifier
-                .padding(8.dp, 0.dp, 8.dp, 30.dp)
+                .padding(8.dp, 0.dp, 0.dp, 30.dp)
                 .preferredHeight(72.dp)
                 .preferredWidth(72.dp)
-                //.weight(0.33f).fillMaxSize()
+            //.weight(0.33f).fillMaxSize()
         }
     }
 
