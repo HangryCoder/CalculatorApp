@@ -131,23 +131,17 @@ fun OperationsButtonBackground(gravityModifier: Modifier, index: Int) {
     if (index == 1 || index == 6 || index == 11) {
         spaceModifier = Modifier
             .plus(gravityModifier)
+            .plus(
+                when (index) {
+                    1 -> Modifier
+                        .clip(RoundedCornerShape(100.dp, 0.dp, 0.dp, 100.dp))
+                    11 -> Modifier
+                        .clip(RoundedCornerShape(0.dp, 100.dp, 100.dp, 0.dp))
+                    else -> Modifier
+                }
+            )
             .fillMaxWidth()
             .preferredHeight(72.dp)
-        if (index == 1) {
-            spaceModifier =
-                Modifier
-                    .clip(RoundedCornerShape(100.dp, 0.dp, 0.dp, 100.dp))
-                    .plus(gravityModifier)
-                    .fillMaxWidth()
-                    .preferredHeight(72.dp)
-        } else if (index == 11) {
-            spaceModifier =
-                Modifier
-                    .clip(RoundedCornerShape(0.dp, 100.dp, 100.dp, 0.dp))
-                    .plus(gravityModifier)
-                    .fillMaxWidth()
-                    .preferredHeight(72.dp)
-        }
     } else {
         spaceModifier = Modifier
             .fillMaxSize()
