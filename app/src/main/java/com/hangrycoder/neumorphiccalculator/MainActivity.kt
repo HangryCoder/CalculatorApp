@@ -111,58 +111,16 @@ fun CalculatorButtonsContainer() {
     val calculatorButtonsContainerModifier = Modifier
         .weight(0.75f)
         .fillMaxSize()
-    //.padding(16.dp, 0.dp, 16.dp, 24.dp)
 
     Row(modifier = calculatorButtonsContainerModifier) {
         CalculatorDigitsContainer()
-        // CalculatorFunctionalButtons()
     }
 }
 
 @Composable
 fun CalculatorDigitsContainer() {
     Column {
-        //  FunctionalButtonsVertical()
         DigitsPanel()
-    }
-}
-
-private val operationsRow = listOf("AC", "<-", "%")
-
-@Composable
-fun FunctionalButtonsVertical() {
-    val calculatorFunctionalModifier = Modifier
-        .fillMaxWidth()
-        .weight(0.12f)
-
-    Stack(modifier = calculatorFunctionalModifier) {
-        //OperationsButtonBackground()
-
-        Row(modifier = Modifier.fillMaxSize()) {
-            operationsRow.forEach { text ->
-                Stack(modifier = Modifier.weight(0.33f).fillMaxSize()) {
-
-                    if (text == operationsRow[1]) {
-
-                        val clearIcon = vectorResource(id = R.drawable.ic_clear)
-                        val clearIconModifier = Modifier.gravity(Alignment.Center)
-                            .height(25.dp)
-                            .aspectRatio(1f)
-                        Image(clearIcon, modifier = clearIconModifier)
-
-                    } else {
-                        val textModifier = Modifier.gravity(Alignment.Center)
-                        Text(
-                            text = text,
-                            textAlign = TextAlign.Center,
-                            modifier = textModifier,
-                            color = lightBrightGrey,
-                            style = MaterialTheme.typography.h6
-                        )
-                    }
-                }
-            }
-        }
     }
 }
 
@@ -192,19 +150,16 @@ fun OperationsButtonBackground(index: Int) {
         }
     } else {
         spaceModifier = Modifier
-            //.padding(0.dp, 16.dp)
             .fillMaxSize()
 
         if (index == 16) {
             spaceModifier =
                 Modifier
                     .clip(RoundedCornerShape(100.dp, 100.dp, 0.dp, 0.dp))
-                    //.padding(16.dp, 16.dp, 0.dp, 16.dp)
                     .fillMaxSize()
         } else if (index == 20) {
             spaceModifier = Modifier
                 .clip(RoundedCornerShape(0.dp, 0.dp, 100.dp, 100.dp))
-                //.padding(16.dp, 16.dp, 0.dp, 16.dp)
                 .fillMaxSize()
         }
     }
@@ -215,35 +170,10 @@ fun OperationsButtonBackground(index: Int) {
     )
 }
 
-/*private val digitsColumns = listOf(
-    listOf("1", "4", "7", "."),
-    listOf("2", "5", "8", "0"),
-    listOf("3", "6", "9", "( )")
-)*/
-
-private val digitsColumns = listOf(
-    listOf("AC", "1", "4", "7", "."),
-    listOf("<-", "2", "5", "8", "0"),
-    listOf("%", "3", "6", "9", "( )"),
-    listOf("÷", "×", "-", "+", "=")
-)
-
 @Composable()
 fun DigitsPanel() {
     val digitsPanelModifier = Modifier
-        // .weight(0.88f)
-        //.padding(0.dp, 16.dp, 0.dp, 0.dp)
         .fillMaxSize()
-
-    /* Row(modifier = digitsPanelModifier) {
-         digitsColumns.forEach { digitColumn ->
-             Column(modifier = Modifier.weight(1f)) {
-                 digitColumn.forEach { text ->
-                     DigitItem(text = text)
-                 }
-             }
-         }
-     }*/
 
     Row(modifier = digitsPanelModifier) {
         Utils.getCalculatorButtons().forEach { buttonRow ->
@@ -272,46 +202,8 @@ fun DigitItem(text: String) {
     }
 }
 
-private val operationsColumn = listOf("÷", "×", "-", "+", "=")
-
-@Composable
-fun CalculatorFunctionalButtons() {
-    val calculatorFunctionalModifier = Modifier
-        .fillMaxHeight()
-        .weight(0.19f)
-
-    Stack(modifier = calculatorFunctionalModifier) {
-        //OperationsButtonBackground()
-
-        val fabIcon = vectorResource(id = R.drawable.ic_fab)
-        val fabModifier = Modifier.gravity(Alignment.BottomCenter)
-            .fillMaxWidth()
-            .aspectRatio(1f)
-        Image(fabIcon, modifier = fabModifier)
-
-
-        Column(modifier = Modifier.fillMaxSize()) {
-            operationsColumn.forEach { text ->
-                //FunctionalItem(text)
-            }
-        }
-    }
-}
-
 @Composable
 fun FunctionalItem(button: Button) {
-    /* Stack(modifier = Modifier.weight(0.25f).fillMaxSize()) {
-         val textModifier = Modifier.gravity(Alignment.Center)
-
-         Text(
-             text = text,
-             textAlign = TextAlign.Center,
-             modifier = textModifier,
-             color = lightBrightGrey,
-             style = MaterialTheme.typography.h3
-         )
-     }*/
-
     var stackModifier: Modifier
     val index = button.id
 
