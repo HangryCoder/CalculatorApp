@@ -188,8 +188,10 @@ fun DigitItem(text: String) {
     Stack(modifier = Modifier.weight(0.33f)) {
         AndroidView(resId = R.layout.layout_neumorphic_digit_item,
             postInflationCallback = {
-                val neumorphButton = it.findViewById<NeumorphButton>(R.id.button)
-                neumorphButton.text = text
+                /*val neumorphButton = it.findViewById<NeumorphButton>(R.id.button)
+                neumorphButton.text = text*/
+               /* val neumorphButton = it.findViewById<android.widget.Button>(R.id.button)
+                neumorphButton.text = text*/
             })
     }
 }
