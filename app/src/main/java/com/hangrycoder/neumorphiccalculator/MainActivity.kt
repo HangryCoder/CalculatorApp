@@ -6,9 +6,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
 import androidx.ui.core.*
-import androidx.ui.foundation.Image
-import androidx.ui.foundation.Text
-import androidx.ui.foundation.isSystemInDarkTheme
+import androidx.ui.foundation.*
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.layout.*
 import androidx.ui.layout.ColumnScope.weight
@@ -239,6 +237,9 @@ fun FunctionalItem(button: Button) {
 
     Stack(modifier = stackModifier) {
         val textModifier = Modifier.gravity(Alignment.Center)
+            .clickable(onClick = {
+                Log.d(TAG, "On Function Click ${button.text}")
+            })
 
         val operationsButtonModifier = Modifier.gravity(Alignment.Center)
         OperationsButtonBackground(operationsButtonModifier, index)
@@ -256,6 +257,10 @@ fun FunctionalItem(button: Button) {
             val clearIconModifier = Modifier.gravity(Alignment.Center)
                 .height(25.dp)
                 .aspectRatio(1f)
+                .clickable(onClick = {
+                    Log.d(TAG, "On Clear Click ${button.text}")
+                })
+
             Image(clearIcon, modifier = clearIconModifier)
         } else {
             val style =
