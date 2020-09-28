@@ -1,6 +1,7 @@
 package com.hangrycoder.neumorphiccalculator
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
@@ -19,6 +20,8 @@ import androidx.ui.unit.dp
 import androidx.ui.viewinterop.AndroidView
 import com.hangrycoder.neumorphiccalculator.ui.*
 import soup.neumorphism.NeumorphButton
+
+private val TAG = MainActivity::class.java.simpleName
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -190,6 +193,9 @@ fun DigitItem(text: String) {
             postInflationCallback = {
                 val neumorphButton = it.findViewById<NeumorphButton>(R.id.button)
                 neumorphButton.text = text
+                neumorphButton.setOnClickListener {
+                    Log.d(TAG, "On Click $text")
+                }
             })
     }
 }
