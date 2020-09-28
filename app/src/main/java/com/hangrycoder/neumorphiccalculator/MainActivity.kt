@@ -174,9 +174,13 @@ fun DigitsPanel() {
             Column(modifier = Modifier.weight(1f)) {
                 buttonRow.forEach { button ->
                     if (button.type == ButtonType.DIGITS) {
-                        DigitItem(text = button.text)
+                        DigitItem(text = button.text, onClick = {
+                            Log.d(TAG, "On Click ${button.text}")
+                        })
                     } else {
-                        FunctionalItem(button)
+                        FunctionalItem(button, onClick = {
+                            Log.d(TAG, "On Click ${button.text}")
+                        })
                     }
                 }
             }
@@ -185,21 +189,21 @@ fun DigitsPanel() {
 }
 
 @Composable
-fun DigitItem(text: String) {
+fun DigitItem(text: String, onClick: () -> Unit) {
     Stack(modifier = Modifier.weight(0.33f)) {
         AndroidView(resId = R.layout.layout_neumorphic_digit_item,
             postInflationCallback = {
                 val neumorphButton = it.findViewById<NeumorphButton>(R.id.button)
                 neumorphButton.text = text
                 neumorphButton.setOnClickListener {
-                    Log.d(TAG, "On Click $text")
+                    onClick()
                 }
             })
     }
 }
 
 @Composable
-fun FunctionalItem(button: Button) {
+fun FunctionalItem(button: Button, onClick: () -> Unit) {
     val stackModifier: Modifier
     val index = button.id
 
@@ -237,9 +241,7 @@ fun FunctionalItem(button: Button) {
 
     Stack(modifier = stackModifier) {
         val textModifier = Modifier.gravity(Alignment.Center)
-            .clickable(onClick = {
-                Log.d(TAG, "On Function Click ${button.text}")
-            })
+            .clickable(onClick = { onClick() })
 
         val operationsButtonModifier = Modifier.gravity(Alignment.Center)
         OperationsButtonBackground(operationsButtonModifier, index)
@@ -257,9 +259,7 @@ fun FunctionalItem(button: Button) {
             val clearIconModifier = Modifier.gravity(Alignment.Center)
                 .height(25.dp)
                 .aspectRatio(1f)
-                .clickable(onClick = {
-                    Log.d(TAG, "On Clear Click ${button.text}")
-                })
+                .clickable(onClick = { onClick() })
 
             Image(clearIcon, modifier = clearIconModifier)
         } else {
