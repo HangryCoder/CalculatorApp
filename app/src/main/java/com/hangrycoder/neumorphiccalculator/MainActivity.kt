@@ -189,6 +189,7 @@ fun DigitsPanel(onClick: (String) -> Unit) {
                     } else {
                         FunctionalItem(button, onClick = {
                             Log.d(TAG, "On Click ${button.text}")
+                            onClick(button.text)
                         })
                     }
                 }
