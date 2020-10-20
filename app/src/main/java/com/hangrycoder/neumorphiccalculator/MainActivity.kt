@@ -5,6 +5,8 @@ import android.util.Log
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.Composable
+import androidx.compose.mutableStateOf
+import androidx.compose.remember
 import androidx.ui.core.*
 import androidx.ui.foundation.*
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
@@ -66,14 +68,20 @@ fun Toolbar() {
 
 @Composable
 fun CalculatorMainContent() {
+    val typedValue = remember(calculation = {
+        mutableStateOf(0)
+    })
+
     Column(modifier = Modifier.weight(1f)) {
-        DigitalInputContainer()
-        CalculatorButtonsContainer()
+        DigitalInputContainer(typedValue.value)
+        CalculatorButtonsContainer(onClick = { newlyTypedValue ->
+            typedValue.value = newlyTypedValue.toInt()
+        })
     }
 }
 
 @Composable
-fun DigitalInputContainer() {
+fun DigitalInputContainer(typedValue: Int) {
     Stack(modifier = Modifier.padding(16.dp, 24.dp).weight(0.25f)) {
         AndroidView(resId = R.layout.layout_digital_input_container, postInflationCallback = {
             it.findViewById<ImageView>(R.id.imageView)
@@ -97,7 +105,7 @@ fun DigitalInputContainer() {
         )
 
         Text(
-            text = "250",
+            text = "$typedValue",
             modifier = Modifier.gravity(Alignment.BottomEnd)
                 .padding(0.dp, 0.dp, 32.dp, 32.dp),
             color = darkGrey,
@@ -108,20 +116,20 @@ fun DigitalInputContainer() {
 }
 
 @Composable
-fun CalculatorButtonsContainer() {
+fun CalculatorButtonsContainer(onClick: (String) -> Unit) {
     val calculatorButtonsContainerModifier = Modifier
         .weight(0.75f)
         .fillMaxSize()
 
     Row(modifier = calculatorButtonsContainerModifier) {
-        CalculatorDigitsContainer()
+        CalculatorDigitsContainer(onClick)
     }
 }
 
 @Composable
-fun CalculatorDigitsContainer() {
+fun CalculatorDigitsContainer(onClick: (String) -> Unit) {
     Column {
-        DigitsPanel()
+        DigitsPanel(onClick)
     }
 }
 
@@ -165,7 +173,7 @@ fun OperationsButtonBackground(gravityModifier: Modifier, index: Int) {
 }
 
 @Composable()
-fun DigitsPanel() {
+fun DigitsPanel(onClick: (String) -> Unit) {
     val digitsPanelModifier = Modifier
         .fillMaxSize()
 
@@ -176,6 +184,7 @@ fun DigitsPanel() {
                     if (button.type == ButtonType.DIGITS) {
                         DigitItem(text = button.text, onClick = {
                             Log.d(TAG, "On Click ${button.text}")
+                            onClick(button.text)
                         })
                     } else {
                         FunctionalItem(button, onClick = {
