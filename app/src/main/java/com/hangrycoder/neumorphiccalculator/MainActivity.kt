@@ -69,19 +69,19 @@ fun Toolbar() {
 @Composable
 fun CalculatorMainContent() {
     val typedValue = remember(calculation = {
-        mutableStateOf(0)
+        mutableStateOf("0")
     })
 
     Column(modifier = Modifier.weight(1f)) {
         DigitalInputContainer(typedValue.value)
         CalculatorButtonsContainer(onClick = { newlyTypedValue ->
-            typedValue.value = newlyTypedValue.toInt()
+            typedValue.value = newlyTypedValue
         })
     }
 }
 
 @Composable
-fun DigitalInputContainer(typedValue: Int) {
+fun DigitalInputContainer(typedValue: String) {
     Stack(modifier = Modifier.padding(16.dp, 24.dp).weight(0.25f)) {
         AndroidView(resId = R.layout.layout_digital_input_container, postInflationCallback = {
             it.findViewById<ImageView>(R.id.imageView)
